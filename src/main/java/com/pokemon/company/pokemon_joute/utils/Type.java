@@ -1,8 +1,7 @@
 package com.pokemon.company.pokemon_joute.utils;
 
-public enum EnumType {
-	
-	VAL1,
-	VAL2
+public enum Type {
+
+	EAU, VOL, PLANTE, INSECTE, FEU
 
 }

@@ -1,7 +1,6 @@
 package com.pokemon.company.pokemon_joute.model;
 
-
-import com.pokemon.company.pokemon_joute.utils.EnumType;
+import com.pokemon.company.pokemon_joute.utils.Type;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,7 +17,7 @@ public class Espece {
 
 	private String nom;
 
-	private EnumType type;
+	private Type type;
 
 	private Integer pvInitial;
 
@@ -46,11 +45,11 @@ public class Espece {
 		this.nom = nom;
 	}
 
-	public EnumType getType() {
+	public Type getType() {
 		return type;
 	}
 
-	public void setType(EnumType type) {
+	public void setType(Type type) {
 		this.type = type;
 	}
 
