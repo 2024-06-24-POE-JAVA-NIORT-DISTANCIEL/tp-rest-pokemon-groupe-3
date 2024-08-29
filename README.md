@@ -15,11 +15,12 @@ Voici les étapes pour repartir d'une base propre (sans données) :
 2. ouvrir un terminal dans le répertoire où se trouve le projet sur votre machine
 3. entrer la commande : 
    `pg_restore -U postgres -h localhost -d postgres --clean --create reset-pokemon-joute.sql` et faire Entrée
+   
    -U : utilisateur de PostgreSQL, (ici:postgres ou autre si vous l'avez modifié)
-4. normalement vous allez devoir entrer votre mot de passe PostgreSQL (rien, postgres, au autre si vous l'avez modifié)
-5. si vous n'avez pas encore la base, vous aurez le message :
+5. normalement vous allez devoir entrer votre mot de passe PostgreSQL (rien, postgres, au autre si vous l'avez modifié)
+6. si vous n'avez pas encore la base, vous aurez le message :
    `pg_restore: erreur : could not executy query: ERREUR: la base de données "pokemon-joute" n'existe pas .....`
    et c'est normal
-6. allez dans pgAdmin4, clic-droit dans l'arborescence à gauche sur Servers et cliquer sur Refresh, si tout s'est bien passé, sous 
+7. allez dans pgAdmin4, clic-droit dans l'arborescence à gauche sur Servers et cliquer sur Refresh, si tout s'est bien passé, sous 
    Servers > PostgreSQL 16 > Databases > .. vous devez trouver pokemon-joute et les tables sont dans pokemon-joute > Schemas > public > Tables
    
