@@ -1,5 +1,6 @@
 package com.pokemon.company.pokemon_joute.model;
 
+
 import com.pokemon.company.pokemon_joute.utils.EnumType;
 
 import jakarta.persistence.Entity;
@@ -9,6 +10,7 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Espece {
+
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -56,8 +58,4 @@ public class Espece {
 
 
 
-
-
-	
-	
 }
