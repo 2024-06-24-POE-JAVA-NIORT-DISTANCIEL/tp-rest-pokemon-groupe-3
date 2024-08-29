@@ -1,10 +1,9 @@
 package com.pokemon.company.pokemon_joute.model;
 
 import com.pokemon.company.pokemon_joute.utils.TypeObjet;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Objet {
@@ -16,9 +15,14 @@ public class Objet {
     private Long id;
 
     private String nom;
-    private Integer prix;
+    private int prix;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type" , nullable = false)
     private TypeObjet type;
 
+    @OneToMany(mappedBy = "objet")
+    private List<Inventaire> dresseurs;
 
     // constructeurs
     // laisser vide sauf cas particulier,
@@ -43,11 +47,11 @@ public class Objet {
         this.nom = nom;
     }
 
-    public Integer getPrix() {
+    public int getPrix() {
         return prix;
     }
 
-    public void setPrix(Integer prix) {
+    public void setPrix(int prix) {
         this.prix = prix;
     }
 
@@ -61,4 +65,13 @@ public class Objet {
 
     // méthodes (si nécessaire)
 
+    @Override
+    public String toString() {
+        return "Objet{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", prix='" + prix + '\'' +
+                ", type=" + type +
+                '}';
+    }
 }

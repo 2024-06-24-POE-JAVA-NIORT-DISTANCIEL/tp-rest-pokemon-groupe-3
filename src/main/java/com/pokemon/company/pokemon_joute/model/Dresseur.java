@@ -17,9 +17,10 @@ public class Dresseur {
     private String pseudo;
 
     private String motDePasse;
-    private Integer portefeuille;
-    private List<Objet> inventaire;
+    private int portefeuille;
 
+    @OneToMany(mappedBy = "dresseur")
+    private List<Inventaire> inventaire;
 
     // constructeurs
     // laisser vide sauf cas particulier,
@@ -52,22 +53,31 @@ public class Dresseur {
         this.motDePasse = motDePasse;
     }
 
-    public Integer getPortefeuille() {
+    public int getPortefeuille() {
         return portefeuille;
     }
 
-    public void setPortefeuille(Integer portefeuille) {
+    public void setPortefeuille(int portefeuille) {
         this.portefeuille = portefeuille;
     }
 
-    public List<Objet> getInventaire() {
+    public List<Inventaire> getInventaire() {
         return inventaire;
     }
 
-    public void setInventaire(List<Objet> inventaire) {
+    public void setInventaire(List<Inventaire> inventaire) {
         this.inventaire = inventaire;
     }
 
     // méthodes (si nécessaire)
 
+    @Override
+    public String toString() {
+        return "Dresseur{" +
+                "id=" + id +
+                ", pseudo='" + pseudo + '\'' +
+                ", motDePasse='" + motDePasse + '\'' +
+                ", portefeuille=" + portefeuille +
+                '}';
+    }
 }
