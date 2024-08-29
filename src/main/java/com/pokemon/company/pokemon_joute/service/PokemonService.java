@@ -60,7 +60,7 @@ public class PokemonService {
         dto.setPv(pokemon.get().getPv());
         dto.setPvMax(pokemon.get().getPvMax());
         dto.setExperience(pokemon.get().getExperience());
-        dto.setEspece_id(pokemon.get().getEspece().get().getId());
+        dto.setEspece_id(pokemon.get().getEspece().getId());
         return dto;
     }
 
@@ -76,7 +76,10 @@ public class PokemonService {
         entity.setPvMax(pokemonDto.getPvMax());
         entity.setExperience(pokemonDto.getExperience());
         Optional<Espece> espece = especeDao.findById(pokemonDto.getEspece_id());
-        entity.setEspece(espece);
+        if (espece.isEmpty()) {
+            return null;
+        }
+        entity.setEspece(espece.get());
         return entity;
     }
 

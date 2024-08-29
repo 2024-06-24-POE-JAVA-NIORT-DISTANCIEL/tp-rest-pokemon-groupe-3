@@ -2,7 +2,6 @@ package com.pokemon.company.pokemon_joute.rest.controller;
 
 import com.pokemon.company.pokemon_joute.model.Attaque;
 import com.pokemon.company.pokemon_joute.service.AttaqueService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +24,7 @@ public class AttaqueRestController {
         return attaqueService.findById(id);
     }
 
-    @GetMapping
+    @GetMapping("/toutes")
     public Iterable<Attaque> findAll() {
         return attaqueService.findAll();
     }

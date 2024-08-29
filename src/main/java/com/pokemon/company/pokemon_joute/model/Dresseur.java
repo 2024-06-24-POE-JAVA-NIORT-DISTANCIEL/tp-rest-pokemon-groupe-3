@@ -1,15 +1,11 @@
 package com.pokemon.company.pokemon_joute.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
 import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
+@Table(name = "dresseur")
 public class Dresseur {
 
     // attributs
@@ -18,14 +14,19 @@ public class Dresseur {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique=true)
+    @Column(unique = true, nullable = false)
     private String pseudo;
 
     private String motDePasse;
-    private int portefeuille;
+
+    @Column(nullable = true)
+    private Integer portefeuille; // ici le choix d'Integer plutôt que int reflète le nullable
 
     @OneToMany(mappedBy = "dresseur")
-    private List<Inventaire> inventaire;
+    private List<Pokemon> pokemons;
+
+    @OneToMany(mappedBy = "dresseur")
+    private List<Inventaire> inventaires;
 
     // constructeurs
     // laisser vide sauf cas particulier,
@@ -58,20 +59,28 @@ public class Dresseur {
         this.motDePasse = motDePasse;
     }
 
-    public int getPortefeuille() {
+    public Integer getPortefeuille() {
         return portefeuille;
     }
 
-    public void setPortefeuille(int portefeuille) {
+    public void setPortefeuille(Integer portefeuille) {
         this.portefeuille = portefeuille;
     }
 
-    public List<Inventaire> getInventaire() {
-        return inventaire;
+    public List<Inventaire> getInventaires() {
+        return inventaires;
     }
 
-    public void setInventaire(List<Inventaire> inventaire) {
-        this.inventaire = inventaire;
+    public void setInventaires(List<Inventaire> inventaires) {
+        this.inventaires = inventaires;
+    }
+
+    public List<Pokemon> getPokemons() {
+        return pokemons;
+    }
+
+    public void setPokemons(List<Pokemon> pokemons) {
+        this.pokemons = pokemons;
     }
 
     // méthodes (si nécessaire)

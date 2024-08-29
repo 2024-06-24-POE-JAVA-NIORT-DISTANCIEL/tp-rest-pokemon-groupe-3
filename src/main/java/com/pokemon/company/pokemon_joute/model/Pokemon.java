@@ -2,9 +2,10 @@ package com.pokemon.company.pokemon_joute.model;
 
 import jakarta.persistence.*;
 
-import java.util.Optional;
+import java.util.List;
 
 @Entity
+@Table(name = "pokemon")
 public class Pokemon {
 
     // attributs
@@ -13,13 +14,29 @@ public class Pokemon {
     private Long id;
     private String nom;
     private int niveau;
+
+    @Column(nullable = true)
     private int experience;
+
+    @Column(nullable = true)
     private int pv;
     private int pvMax;
 
     @ManyToOne
-    @JoinColumn(name = "ESPECE_ID")
-    private Optional<Espece> espece;
+    @JoinColumn(name = "espece_id", nullable = false)
+    private Espece espece;
+
+    @ManyToOne
+    @JoinColumn(name = "dresseur_id", nullable = true)
+    private Dresseur dresseur;
+
+    @ManyToMany
+    @JoinTable(
+            name = "pokemon_attaque",
+            joinColumns = @JoinColumn(name = "pokemon_id"),
+            inverseJoinColumns = @JoinColumn(name = "attaque_id")
+    )
+    private List<Attaque> attaques;
 
     // constructeurs
     // Laisser vide sauf cas particulier,
@@ -75,12 +92,28 @@ public class Pokemon {
         this.pvMax = pvMax;
     }
 
-    public Optional<Espece> getEspece() {
+    public Espece getEspece() {
         return espece;
     }
 
-    public void setEspece(Optional<Espece> espece) {
+    public void setEspece(Espece espece) {
         this.espece = espece;
+    }
+
+    public Dresseur getDresseur() {
+        return dresseur;
+    }
+
+    public void setDresseur(Dresseur dresseur) {
+        this.dresseur = dresseur;
+    }
+
+    public List<Attaque> getAttaques() {
+        return attaques;
+    }
+
+    public void setAttaques(List<Attaque> attaques) {
+        this.attaques = attaques;
     }
 
     // méthodes (si nécessaire)

@@ -1,12 +1,12 @@
 package com.pokemon.company.pokemon_joute.model;
 
 import com.pokemon.company.pokemon_joute.utils.Type;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
+@Table(name = "attaque")
 public class Attaque {
 
     // attributs
@@ -14,10 +14,16 @@ public class Attaque {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String nom;
 
+    @Enumerated(EnumType.STRING)
     private Type type;
+
     private int degats;
+
+    @ManyToMany(mappedBy = "attaques")
+    private List<Pokemon> pokemons;
 
     // private PokemonDto pokemon; // Relation @ManyToOne avec Pokémon, voir plus tard
 
@@ -60,14 +66,24 @@ public class Attaque {
         this.degats = degats;
     }
 
+    public List<Pokemon> getPokemons() {
+        return pokemons;
+    }
+
+    public void setPokemons(List<Pokemon> pokemons) {
+        this.pokemons = pokemons;
+    }
+
+    // méthodes (si nécessaire)
+
     @Override
     public String toString() {
         return "Attaque{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
+                ", type=" + type +
+                ", degats=" + degats +
                 '}';
     }
-
-// méthodes (si nécessaire)
 
 }
