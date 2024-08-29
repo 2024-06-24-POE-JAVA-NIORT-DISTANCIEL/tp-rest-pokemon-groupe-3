@@ -1,29 +1,11 @@
 package com.pokemon.company.pokemon_joute.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Pokemon {
 
     // attributs
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-
-    // constructeurs
-    // laisser vide sauf cas particulier,
-    // dans ce cas, ajouter le constructeur par défaut sans paramètres
-
-
-
-    // méthodes (si nécessaire)
-
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -33,7 +15,16 @@ public class Pokemon {
     private int pv;
     private int pvMax;
 
-    
+    @ManyToOne
+    @JoinColumn(name = "ESPECE_ID")
+    private Espece espece;
+
+    // constructeurs
+    // Laisser vide sauf cas particulier,
+    // dans ce cas, ajouter le constructeur par défaut sans paramètres
+
+    // getters et setters
+
     public Long getId() {
         return id;
     }
@@ -81,6 +72,16 @@ public class Pokemon {
     public void setPvMax(int pvMax) {
         this.pvMax = pvMax;
     }
+
+    public Espece getEspece() {
+        return espece;
+    }
+
+    public void setEspece(Espece espece) {
+        this.espece = espece;
+    }
+
+    // méthodes (si nécessaire)
 
     @Override
     public String toString() {

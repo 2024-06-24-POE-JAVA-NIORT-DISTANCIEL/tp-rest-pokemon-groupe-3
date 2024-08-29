@@ -1,5 +1,6 @@
 package com.pokemon.company.pokemon_joute.model;
 
+import com.pokemon.company.pokemon_joute.utils.Type;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,6 +15,9 @@ public class Attaque {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
+
+    private Type type;
+    private int degats;
 
     // private Pokemon pokemon; // Relation @ManyToOne avec Pokémon, voir plus tard
 
@@ -40,13 +44,29 @@ public class Attaque {
         this.nom = nom;
     }
 
- @Override
- public String toString() {
- return "Attaque{" +
- "id=" + id +
- ", nom='" + nom + '\'' +
- '}';
-}
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public int getDegats() {
+        return degats;
+    }
+
+    public void setDegats(int degats) {
+        this.degats = degats;
+    }
+
+    @Override
+    public String toString() {
+        return "Attaque{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                '}';
+    }
 
 // méthodes (si nécessaire)
 

@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.pokemon.company.pokemon_joute.model.Espece;
-import com.pokemon.company.pokemon_joute.utils.EnumType;
+import com.pokemon.company.pokemon_joute.utils.Type;
 
 
 @Repository
@@ -16,7 +16,7 @@ public interface EspeceDao extends CrudRepository<Espece, Long> {
 	public List<Espece> findByNom(String nom);
 	
 	// Recherche Espece par type
-	public List<Espece> findByType(EnumType type);
+	public List<Espece> findByType(Type type);
 	
 	// Recherche par pvInitial
 	public List<Espece> findByPvInitial(Integer pvInitial);
