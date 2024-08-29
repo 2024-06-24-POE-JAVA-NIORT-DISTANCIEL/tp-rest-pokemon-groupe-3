@@ -1,8 +1,7 @@
 package com.pokemon.company.pokemon_joute.utils;
 
-public enum EnumType {
+public enum Type {
 	
-	VAL1,
-	VAL2
+	EAU, VOL,
 
 }
