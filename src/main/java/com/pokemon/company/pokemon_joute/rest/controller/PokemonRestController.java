@@ -1,13 +1,12 @@
 package com.pokemon.company.pokemon_joute.rest.controller;
 
+import com.pokemon.company.pokemon_joute.dto.PokemonDto;
 import com.pokemon.company.pokemon_joute.model.Pokemon;
 import com.pokemon.company.pokemon_joute.service.PokemonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/pokemons")
@@ -17,19 +16,19 @@ public class PokemonRestController {
     PokemonService pokemonService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<Pokemon>> findById(@PathVariable("id") Long id) {
-        Optional<Pokemon> pokemon = pokemonService.findById(id);
-        if (pokemon.isPresent()) {
-            return ResponseEntity.ok(pokemon);
+    public ResponseEntity<PokemonDto> findById(@PathVariable("id") Long id) {
+        PokemonDto pokemonDto = pokemonService.findById(id);
+        if (pokemonDto == null) {
+            return ResponseEntity.ok(pokemonDto);
         } else {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
 
     @PostMapping
-    public ResponseEntity<Pokemon> save(@RequestBody Pokemon pokemon) {
-        Pokemon savedPokemon = pokemonService.save(pokemon);
-        return ResponseEntity.status(HttpStatus.CREATED).body(savedPokemon);
+    public ResponseEntity<PokemonDto> save(@RequestBody Pokemon pokemon) {
+        PokemonDto savedPokemonDto = pokemonService.save(pokemon);
+        return ResponseEntity.status(HttpStatus.CREATED).body(savedPokemonDto);
     }
 
     @DeleteMapping("/{id}")

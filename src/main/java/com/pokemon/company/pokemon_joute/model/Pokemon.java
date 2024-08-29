@@ -2,6 +2,8 @@ package com.pokemon.company.pokemon_joute.model;
 
 import jakarta.persistence.*;
 
+import java.util.Optional;
+
 @Entity
 public class Pokemon {
 
@@ -17,7 +19,7 @@ public class Pokemon {
 
     @ManyToOne
     @JoinColumn(name = "ESPECE_ID")
-    private Espece espece;
+    private Optional<Espece> espece;
 
     // constructeurs
     // Laisser vide sauf cas particulier,
@@ -73,11 +75,11 @@ public class Pokemon {
         this.pvMax = pvMax;
     }
 
-    public Espece getEspece() {
+    public Optional<Espece> getEspece() {
         return espece;
     }
 
-    public void setEspece(Espece espece) {
+    public void setEspece(Optional<Espece> espece) {
         this.espece = espece;
     }
 
@@ -85,7 +87,7 @@ public class Pokemon {
 
     @Override
     public String toString() {
-        return "Pokemon : {" +
+        return "PokemonDto : {" +
                 "id = " + id +
                 ", nom = " + nom + '\'' +
                 ", niveau = " + niveau +

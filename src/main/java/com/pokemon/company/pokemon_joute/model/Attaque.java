@@ -19,13 +19,13 @@ public class Attaque {
     private Type type;
     private int degats;
 
-    // private Pokemon pokemon; // Relation @ManyToOne avec Pokémon, voir plus tard
+    // private PokemonDto pokemon; // Relation @ManyToOne avec Pokémon, voir plus tard
 
     // constructeurs
     // laisser vide sauf cas particulier,
     // dans ce cas, ajouter le constructeur par défaut sans paramètres
 
-    // private Pokemon pokemon; // Relation @ManyToOne avec Pokémon, voir plus tard
+    // private PokemonDto pokemon; // Relation @ManyToOne avec Pokémon, voir plus tard
 
     // getters et setters
     public Long getId() {
