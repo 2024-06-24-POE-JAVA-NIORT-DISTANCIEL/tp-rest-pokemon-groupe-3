@@ -10,7 +10,7 @@ Ouvrir le fichier sur [app.diagrams.net](https://app.diagrams.net)
 reset-pokemon-joute.sql : fichier de remise à zéro de la base de données pokemon-joute
 Voici les étapes pour repartir d'une base propre (sans données) :
 - attention : si la base pokemon-joute existe déjà, elle est effacée puis recréée à neuf -
-
+- Fermer pgAdmin (ou équivalent) s'il est lancé -
 1. faire un git pull pour récupérer la dernière version du projet, y compris ce fichier
 2. ouvrir un terminal dans le répertoire où se trouve le projet sur votre machine
 3. entrer la commande : 
