@@ -2,6 +2,7 @@ package com.pokemon.company.pokemon_joute;
 
 import com.pokemon.company.pokemon_joute.dao.AttaqueDao;
 import com.pokemon.company.pokemon_joute.model.Attaque;
+import com.pokemon.company.pokemon_joute.utils.Type;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ public class AttaqueTest {
     public void testSaveAttaque() {
         Attaque attaque = new Attaque();
         attaque.setNom("Lance-Soleil");
+        attaque.setType(Type.PLANTE);
 
         Attaque savedAttaque = attaqueDao.save(attaque);
         Assertions.assertNotNull(savedAttaque.getId());
@@ -34,6 +36,7 @@ public class AttaqueTest {
     public void testFindByNom() {
         Attaque attaque = new Attaque();
         attaque.setNom("Charge");
+        attaque.setType(Type.VOL);
 
         attaqueDao.save(attaque);
         List<Attaque> attaques = attaqueDao.findByNom("Charge");
@@ -46,6 +49,7 @@ public class AttaqueTest {
     public void testDeleteAttaque() {
         Attaque attaque = new Attaque();
         attaque.setNom("Tranch'Herbe");
+        attaque.setType(Type.PLANTE);
 
         Attaque savedAttaque = attaqueDao.save(attaque);
         attaqueDao.delete(savedAttaque);
