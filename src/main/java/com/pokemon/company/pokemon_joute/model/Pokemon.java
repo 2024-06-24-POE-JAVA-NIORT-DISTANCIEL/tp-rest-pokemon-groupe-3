@@ -8,6 +8,22 @@ import jakarta.persistence.Id;
 @Entity
 public class Pokemon {
 
+    // attributs
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+
+    // constructeurs
+    // laisser vide sauf cas particulier,
+    // dans ce cas, ajouter le constructeur par défaut sans paramètres
+
+
+
+    // méthodes (si nécessaire)
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -17,6 +33,7 @@ public class Pokemon {
     private int pv;
     private int pvMax;
 
+    
     public Long getId() {
         return id;
     }
