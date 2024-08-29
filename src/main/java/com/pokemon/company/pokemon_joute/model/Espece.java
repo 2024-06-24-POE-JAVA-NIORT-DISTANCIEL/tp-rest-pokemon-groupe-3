@@ -15,15 +15,21 @@ public class Espece {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String nom;
-	
+
 	private EnumType type;
-	
+
 	private Integer pvInitial;
-	
+
+	// constructeurs
+
+	// laisser vide sauf cas particulier,
+	// dans ce cas, ajouter le constructeur par défaut sans paramètres
+
 	//private Attaque attaqueInitiale;
 
+	// getters et setters
 	public Long getId() {
 		return id;
 	}
@@ -55,7 +61,7 @@ public class Espece {
 	public void setPvInitial(Integer pvInitial) {
 		this.pvInitial = pvInitial;
 	}
-
+// méthodes (si nécessaire)
 
 
 }
