@@ -1,10 +1,15 @@
 package com.pokemon.company.pokemon_joute.model;
 
 import com.pokemon.company.pokemon_joute.utils.Type;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
-@Table(name = "espece")
 public class Espece {
 
     @Id
@@ -13,14 +18,13 @@ public class Espece {
 
     private String nom;
 
-    @Enumerated(EnumType.STRING)
-	private Type type;
+    private Type type;
 
-    private int pvInitial;
+    private Integer pvInitial;
 
     @ManyToOne
-    @JoinColumn(name = "attaque_initiale_id")
-    private Attaque attaqueInitiale;
+    @JoinColumn(name = "ATTAQUE_INITIALE_ID")
+    private Attaque attaque;
 
     // constructeurs
 
@@ -62,25 +66,15 @@ public class Espece {
         this.pvInitial = pvInitial;
     }
 
-    public Attaque getAttaqueInitiale() {
-        return attaqueInitiale;
+    public Attaque getAttaque() {
+        return attaque;
     }
 
-    public void setAttaqueInitiale(Attaque attaqueInitiale) {
-        this.attaqueInitiale = attaqueInitiale;
+    public void setAttaque(Attaque attaque) {
+        this.attaque = attaque;
     }
 
     // méthodes (si nécessaire)
 
-    @Override
-    public String toString() {
-        return "Espece{" +
-                "id=" + id +
-                ", nom='" + nom + '\'' +
-                ", pvInitial=" + pvInitial +
-                ", attaqueInitiale=" + attaqueInitiale +
-                ", type=" + type +
-                '}';
-    }
 
 }
