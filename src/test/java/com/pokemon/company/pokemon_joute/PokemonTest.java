@@ -19,19 +19,19 @@ public class PokemonTest {
 //        salameche1.setPvInitial(35);
 //        salameche1.setType(Type.FEU);
 //
-//        Pokemon salameche = new Pokemon();
+//        PokemonDto salameche = new PokemonDto();
 //        salameche.setNom("Salamèche");
 //        salameche.setPv(35);
 //        salameche.setPvMax(35);
 //        salameche.setExperience(0);
 //        salameche.setNiveau(0);
 //
-//        salameche.setEspece(salameche1);
+//        salameche.setEspece_id(salameche1);
 //
 //        pokemonDao.save(salameche);
 //        System.out.println(salameche);
 //
-//        Optional<Pokemon> salamecheFindById = pokemonDao.findById(salameche.getId());
+//        Optional<PokemonDto> salamecheFindById = pokemonDao.findById(salameche.getId());
 //        Assertions.assertNotNull(salamecheFindById, "Le pokémon salamèche devrait être dans la BDD");
 //
 //    }
@@ -45,14 +45,14 @@ public class PokemonTest {
 //        carapuce1.setPvInitial(35);
 //        carapuce1.setType(Type.EAU);
 //
-//        Pokemon carapuce = new Pokemon();
+//        PokemonDto carapuce = new PokemonDto();
 //        carapuce.setNom("carapuce");
 //        carapuce.setPv(35);
 //        carapuce.setPvMax(35);
 //        carapuce.setNiveau(0);
 //        carapuce.setExperience(0);
 //
-//        carapuce.setEspece(carapuce1);
+//        carapuce.setEspece_id(carapuce1);
 //
 //        pokemonDao.save(carapuce);
 //
@@ -63,18 +63,18 @@ public class PokemonTest {
 //    @Test
 //    public void testDeleteById() {
 //
-//        Pokemon bulbizarre = new Pokemon();
+//        PokemonDto bulbizarre = new PokemonDto();
 //        bulbizarre.setNom("bulbizarre");
 //        bulbizarre.setPv(35);
 //        bulbizarre.setPvMax(35);
 //        bulbizarre.setNiveau(0);
 //        bulbizarre.setExperience(0);
 //
-//        Pokemon savedPokemon = pokemonDao.save(bulbizarre);
+//        PokemonDto savedPokemon = pokemonDao.save(bulbizarre);
 //
 //        pokemonDao.deleteById(savedPokemon.getId());
 //
-//        Optional<Pokemon> deletedPokemon = pokemonDao.findById(savedPokemon.getId());
+//        Optional<PokemonDto> deletedPokemon = pokemonDao.findById(savedPokemon.getId());
 //
 //        Assertions.assertFalse(deletedPokemon.isPresent(), "Le pokémon devrait être supprimé");
 //
@@ -89,18 +89,18 @@ public class PokemonTest {
 //        salameche1.setPvInitial(35);
 //        salameche1.setType(Type.FEU);
 //
-//        Pokemon salameche = new Pokemon();
+//        PokemonDto salameche = new PokemonDto();
 //        salameche.setNom("Salamèche");
 //        salameche.setPv(35);
 //        salameche.setPvMax(35);
 //        salameche.setExperience(0);
 //        salameche.setNiveau(0);
 //
-//        salameche.setEspece(salameche1);
+//        salameche.setEspece_id(salameche1);
 //
 //        pokemonDao.save(salameche);
 //
-//        Pokemon carapuce = new Pokemon();
+//        PokemonDto carapuce = new PokemonDto();
 //        carapuce.setNom("carapuce");
 //        carapuce.setPv(35);
 //        carapuce.setPvMax(35);
@@ -123,18 +123,18 @@ public class PokemonTest {
 //        salameche1.setPvInitial(35);
 //        salameche1.setType(Type.FEU);
 //
-//        Pokemon salameche = new Pokemon();
+//        PokemonDto salameche = new PokemonDto();
 //        salameche.setNom("Salamèche");
 //        salameche.setPv(35);
 //        salameche.setPvMax(35);
 //        salameche.setExperience(0);
 //        salameche.setNiveau(0);
 //
-//        salameche.setEspece(salameche1);
+//        salameche.setEspece_id(salameche1);
 //
-//        Pokemon savedPokemon = pokemonDao.save(salameche);
+//        PokemonDto savedPokemon = pokemonDao.save(salameche);
 //
-//        List<Pokemon> pokemonList = pokemonDao.findByNomContainingIgnoreCaseOrderByNomDesc("aLa");
+//        List<PokemonDto> pokemonList = pokemonDao.findByNomContainingIgnoreCaseOrderByNomDesc("aLa");
 //
 //        Assertions.assertFalse(pokemonList.isEmpty(), "herlolo");
 //    }

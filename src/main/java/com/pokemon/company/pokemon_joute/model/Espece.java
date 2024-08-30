@@ -1,10 +1,10 @@
 package com.pokemon.company.pokemon_joute.model;
 
 import com.pokemon.company.pokemon_joute.utils.Type;
-
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "espece")
 public class Espece {
 
     @Id
@@ -13,13 +13,14 @@ public class Espece {
 
     private String nom;
 
-    private Type type;
+    @Enumerated(EnumType.STRING)
+	private Type type;
 
-    private Integer pvInitial;
+    private int pvInitial;
 
     @ManyToOne
-    @JoinColumn(name = "ATTAQUE_INITIALE_ID")
-    private Attaque attaque;
+    @JoinColumn(name = "attaque_initiale_id")
+    private Attaque attaqueInitiale;
 
     // constructeurs
 
@@ -61,15 +62,25 @@ public class Espece {
         this.pvInitial = pvInitial;
     }
 
-    public Attaque getAttaque() {
-        return attaque;
+    public Attaque getAttaqueInitiale() {
+        return attaqueInitiale;
     }
 
-    public void setAttaque(Attaque attaque) {
-        this.attaque = attaque;
+    public void setAttaqueInitiale(Attaque attaqueInitiale) {
+        this.attaqueInitiale = attaqueInitiale;
     }
 
     // méthodes (si nécessaire)
 
+    @Override
+    public String toString() {
+        return "Espece{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", pvInitial=" + pvInitial +
+                ", attaqueInitiale=" + attaqueInitiale +
+                ", type=" + type +
+                '}';
+    }
 
 }

@@ -1,36 +1,35 @@
 package com.pokemon.company.pokemon_joute.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
+@Table(name = "inventaire")
 public class Inventaire {
 
     // attributs
 
     @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
+    @ManyToOne
+    @JoinColumn(name = "dresseur_id")
+    private Dresseur dresseur;
 
-        @ManyToOne
-        @JoinColumn(name = "dresseur_id")
-        private Dresseur dresseur;
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "objet_id")
+    private Objet objet;
 
-        @ManyToOne
-        @JoinColumn(name = "objet_id")
-        private Objet objet;
+    @Column(nullable = false)
+    @NotNull(message = "La quantité ne peut pas être Null")
+    @Min(value = 0, message = "La quantité ne peut pas être négative")
+    private int quantite;
 
-        private int quantite;
-
+    // constructeurs
+    // laisser vide sauf cas particulier,
+    // dans ce cas, ajouter le constructeur par défaut sans paramètres
 
     // getters et setters
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Dresseur getDresseur() {
         return dresseur;
@@ -54,6 +53,17 @@ public class Inventaire {
 
     public void setQuantite(int quantite) {
         this.quantite = quantite;
+    }
+
+    // méthodes (si nécessaire)
+
+    @Override
+    public String toString() {
+        return "Inventaire{" +
+                "dresseur=" + dresseur.getId() +
+                ", objet=" + objet.getId() +
+                ", quantite=" + quantite +
+                '}';
     }
 }
 
