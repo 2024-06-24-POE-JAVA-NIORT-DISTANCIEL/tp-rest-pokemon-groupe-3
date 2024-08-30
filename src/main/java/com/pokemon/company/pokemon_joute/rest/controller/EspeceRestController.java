@@ -24,12 +24,11 @@ public class EspeceRestController {
 	public Espece save(@RequestBody Espece espece) {
 		return this.especeService.save(espece);
 	}
-//	
-//	@DeleteMapping("/{especeId}")
-//	public void delete(@PathVariable("especeId") Long especeId) {
-//		this.especeService.removeById(especeId);
-//	}
-	
+
+	@DeleteMapping("{id}")
+	public void delete(@PathVariable("id") Long id) {
+		this.especeService.deleteById(id);
+	}
 	
 	
 	

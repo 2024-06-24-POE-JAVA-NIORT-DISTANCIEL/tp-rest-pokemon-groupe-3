@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DresseurDao extends CrudRepository<Dresseur, Long> {
+
+
 }

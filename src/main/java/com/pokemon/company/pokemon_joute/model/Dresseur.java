@@ -19,7 +19,6 @@ public class Dresseur {
 
     private String motDePasse;
 
-    @Column(nullable = true)
     private Integer portefeuille = 100; // ici le choix d'Integer plutôt que int reflète le nullable
 
     @OneToMany(mappedBy = "dresseur")

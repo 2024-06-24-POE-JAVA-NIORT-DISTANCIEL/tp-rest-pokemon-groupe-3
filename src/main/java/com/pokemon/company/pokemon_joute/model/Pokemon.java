@@ -15,7 +15,7 @@ public class Pokemon {
     private String nom;
     private int niveau;
 
-    private int experience=0;
+    private int experience = 0;
 
     private int pv;
     private int pvMax;
@@ -34,6 +34,7 @@ public class Pokemon {
             joinColumns = @JoinColumn(name = "pokemon_id"),
             inverseJoinColumns = @JoinColumn(name = "attaque_id")
     )
+
     private List<Attaque> attaques;
 
     // constructeurs
