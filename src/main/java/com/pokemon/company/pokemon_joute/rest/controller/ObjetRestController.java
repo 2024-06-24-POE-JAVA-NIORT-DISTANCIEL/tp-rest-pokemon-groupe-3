@@ -44,5 +44,4 @@ public class ObjetRestController {
     public void deleteAllObjets() {
         objetService.deleteAll();
     }
-
 }

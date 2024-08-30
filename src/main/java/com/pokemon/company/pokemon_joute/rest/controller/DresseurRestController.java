@@ -23,10 +23,16 @@ public class DresseurRestController {
     }
 
     @GetMapping("/{id}")
-    public Dresseur getDresseur(@PathVariable("id") Long id){
+    public ResponseEntity<Dresseur> getDresseur(@PathVariable("id") Long id){
         Dresseur savedDresseur = dresseurService.findById(id);
-        System.out.println("Récupération du dresseur : \n" + savedDresseur.toString());
-        return savedDresseur;
+
+        if (savedDresseur != null) {
+            System.out.println("Récupération du dresseur : \n" + savedDresseur);
+            return ResponseEntity.ok(savedDresseur);
+        } else {
+            System.out.println("Le dresseur n'a pas été trouvé");
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @GetMapping("/tous")
@@ -38,9 +44,17 @@ public class DresseurRestController {
     }
 
     @DeleteMapping("{id}")
-    public void deleteDresseur(@PathVariable("id") Long id){
-        System.out.println("Effacement du dresseur : \n" + dresseurService.findById(id).toString());
-        dresseurService.deleteById(id);
+    public ResponseEntity<Void> deleteDresseur(@PathVariable("id") Long id) {
+        Dresseur dresseur = dresseurService.findById(id);
+
+        if (dresseur != null) {
+            System.out.println("Effacement du dresseur : \n" + dresseur);
+            dresseurService.deleteById(id);
+            return ResponseEntity.ok().build();
+        } else {
+            System.out.println("Le dresseur n'existe pas, suppression impossible");
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping("/tous")
