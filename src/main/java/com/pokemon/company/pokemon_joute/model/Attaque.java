@@ -25,8 +25,6 @@ public class Attaque {
     @ManyToMany(mappedBy = "attaques")
     private List<Pokemon> pokemons;
 
-    // private PokemonDto pokemon; // Relation @ManyToOne avec Pokémon, voir plus tard
-
     // constructeurs
     // laisser vide sauf cas particulier,
     // dans ce cas, ajouter le constructeur par défaut sans paramètres

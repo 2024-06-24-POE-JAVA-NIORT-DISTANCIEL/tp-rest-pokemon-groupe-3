@@ -25,7 +25,7 @@ public class EspeceRestController {
 		return this.especeService.save(espece);
 	}
 //	
-//	@DeleteMapping("espece/{especeId}")
+//	@DeleteMapping("/{especeId}")
 //	public void delete(@PathVariable("especeId") Long especeId) {
 //		this.especeService.removeById(especeId);
 //	}
