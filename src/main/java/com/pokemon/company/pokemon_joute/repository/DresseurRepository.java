@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DresseurRepository extends JpaRepository<Dresseur, Long> {
+
+//    List<Dresseur> findByPseudoContainingIgnoreCaseOrderByNomDesc(String pseudo);
 }

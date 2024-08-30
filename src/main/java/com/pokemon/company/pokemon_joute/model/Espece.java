@@ -14,7 +14,7 @@ public class Espece {
     private String nom;
 
     @Enumerated(EnumType.STRING)
-	private Type type;
+    private Type type;
 
     private int pvInitial;
 
@@ -23,11 +23,8 @@ public class Espece {
     private Attaque attaqueInitiale;
 
     // constructeurs
-
     // laisser vide sauf cas particulier,
     // dans ce cas, ajouter le constructeur par défaut sans paramètres
-
-    //private Attaque attaqueInitiale;
 
     // getters et setters
     public Long getId() {
@@ -62,11 +59,11 @@ public class Espece {
         this.pvInitial = pvInitial;
     }
 
-    public Attaque getAttaqueInitiale() {
+    public Attaque getAttaqueAttaqueInitiale() {
         return attaqueInitiale;
     }
 
-    public void setAttaqueInitiale(Attaque attaqueInitiale) {
+    public void setAttaqueAttaqueInitiale(Attaque attaqueInitiale) {
         this.attaqueInitiale = attaqueInitiale;
     }
 
