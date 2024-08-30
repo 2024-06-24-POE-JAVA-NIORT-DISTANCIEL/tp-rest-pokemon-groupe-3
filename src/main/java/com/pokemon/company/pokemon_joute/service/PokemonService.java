@@ -11,9 +11,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
+import java.util.logging.Logger;
 
 @Service
 public class PokemonService {
+
+    private static final Logger LOGGER = Logger.getLogger(String.valueOf(Pokemon.class));
 
     @Autowired
     PokemonDao pokemonDao;
@@ -22,31 +25,38 @@ public class PokemonService {
     EspeceDao especeDao;
 
     public PokemonDto findById(Long id) {
+        LOGGER.info("Le pokémon est trouvé par son identifiant");
         return toDto(this.pokemonDao.findById(id));
     }
 
     @Transactional
     public PokemonDto save(Pokemon pokemon) {
+        LOGGER.info("Le client est sauvegardé dans la base de données");
         return toDto(Optional.of(pokemonDao.save(pokemon)));
     }
 
     public void deleteById(Long id) {
         try {
             pokemonDao.deleteById(id);
+            LOGGER.info("Le pokémon a été supprimé par son identifiant");
         } catch (EmptyResultDataAccessException e) {
             System.err.println("Erreur : Aucun Pokémon trouvé avec l'ID " + id);
         }
     }
 
     public Iterable<Pokemon> findAll() {
+        LOGGER.info("Voici la liste de tous les pokémon");
         return this.pokemonDao.findAll();
     }
 
     public Iterable<Pokemon> findByNomContainingIgnoreCaseOrderByNomDesc(String nom) {
         if (nom == null || nom.trim().isEmpty()) {
+            LOGGER.info("Le nom du pokémon n'est pas contenu dans la base de donnée");
             return this.pokemonDao.findAll();
         }
+        LOGGER.info("La liste des pokémons par nom dans l'ordre descendant");
         return pokemonDao.findByNomContainingIgnoreCaseOrderByNomDesc(nom);
+
     }
 
     private PokemonDto toDto(Optional<Pokemon> pokemon) {

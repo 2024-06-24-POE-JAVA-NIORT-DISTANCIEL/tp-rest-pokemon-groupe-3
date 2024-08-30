@@ -1,5 +1,6 @@
 package com.pokemon.company.pokemon_joute.rest.controller;
 
+import com.pokemon.company.pokemon_joute.dto.DresseurDto;
 import com.pokemon.company.pokemon_joute.model.Dresseur;
 import com.pokemon.company.pokemon_joute.service.DresseurService;
 
@@ -16,15 +17,15 @@ public class DresseurRestController {
     private DresseurService dresseurService;
 
     @PostMapping
-    public Dresseur save(@RequestBody Dresseur dresseur){
-        Dresseur savedDresseur = dresseurService.save(dresseur);
+    public DresseurDto save(@RequestBody Dresseur dresseur){
+        DresseurDto savedDresseur = dresseurService.save(dresseur);
         System.out.println("Sauvegarde du dresseur : \n" + savedDresseur.toString());
         return savedDresseur;
     }
 
     @GetMapping("/{id}")
-    public Dresseur getDresseur(@PathVariable("id") Long id){
-        Dresseur savedDresseur = dresseurService.findById(id);
+    public DresseurDto getDresseur(@PathVariable("id") Long id){
+        DresseurDto savedDresseur = dresseurService.findById(id);
         System.out.println("Récupération du dresseur : \n" + savedDresseur.toString());
         return savedDresseur;
     }
