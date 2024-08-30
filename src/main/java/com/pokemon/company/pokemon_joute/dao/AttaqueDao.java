@@ -23,5 +23,6 @@ public interface AttaqueDao extends CrudRepository<Attaque, Long> {
          * Recherche toutes les attaques contenant une chaîne de caractères dans leur nom, sans tenir compte de la casse.
          */
         List<Attaque> findByNomContainingIgnoreCase(String nom);
+
     }
 

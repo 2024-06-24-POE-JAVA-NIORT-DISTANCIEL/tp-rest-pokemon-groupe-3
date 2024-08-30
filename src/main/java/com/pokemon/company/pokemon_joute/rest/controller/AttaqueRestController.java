@@ -6,6 +6,7 @@ import com.pokemon.company.pokemon_joute.service.AttaqueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -21,7 +22,7 @@ public class AttaqueRestController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Attaque> findById(@PathVariable Long id) {
+    public Attaque findById(@PathVariable Long id) {
         return attaqueService.findById(id);
     }
 
@@ -30,8 +31,18 @@ public class AttaqueRestController {
         return attaqueService.findAll();
     }
 
+    @GetMapping("/search")
+    public List<Attaque> findByNom(@RequestParam String nom) {
+        return attaqueService.findByNom(nom);
+    }
+
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         attaqueService.delete(id);
+    }
+
+    @DeleteMapping("/deleteAll")
+    public void deleteAll() {
+        attaqueService.deleteAll();
     }
 }

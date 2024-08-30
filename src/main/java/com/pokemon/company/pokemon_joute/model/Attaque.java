@@ -1,10 +1,7 @@
 package com.pokemon.company.pokemon_joute.model;
 
 import com.pokemon.company.pokemon_joute.utils.Type;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Attaque {
@@ -15,7 +12,7 @@ public class Attaque {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
-
+    @Enumerated(EnumType.STRING)
     private Type type;
     private int degats;
 

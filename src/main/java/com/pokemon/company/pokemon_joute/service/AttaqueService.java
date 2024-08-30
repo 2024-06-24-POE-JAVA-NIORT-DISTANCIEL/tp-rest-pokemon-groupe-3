@@ -18,8 +18,12 @@ public class AttaqueService {
         return attaqueDao.save(attaque);
     }
 
-    public Optional<Attaque> findById(Long id) {
-        return attaqueDao.findById(id);
+    public Attaque findById(Long id) {
+        Optional<Attaque> optionalAttaque = this.attaqueDao.findById(id);
+        if (optionalAttaque.isEmpty()) {
+            return null;
+        }
+        return optionalAttaque.get();
     }
 
     public Iterable<Attaque> findAll() {
@@ -32,5 +36,9 @@ public class AttaqueService {
 
     public void delete(Long id) {
         attaqueDao.deleteById(id);
+    }
+
+    public void deleteAll() {
+        attaqueDao.deleteAll();
     }
 }
