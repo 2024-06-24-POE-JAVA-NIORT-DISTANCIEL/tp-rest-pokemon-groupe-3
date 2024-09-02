@@ -118,10 +118,7 @@ public class ObjetService {
                 }
             }
             if (!foundInInventaire) {
-                DresseurObjet nouveauDresseurObjet = new DresseurObjet();
-                nouveauDresseurObjet.setDresseur(dresseur);
-                nouveauDresseurObjet.setObjet(objet);
-                nouveauDresseurObjet.setQuantite(1);
+                DresseurObjet nouveauDresseurObjet = new DresseurObjet(dresseur, objet, 1);
                 dresseur.getDresseurObjets().add(nouveauDresseurObjet);
             }
         }

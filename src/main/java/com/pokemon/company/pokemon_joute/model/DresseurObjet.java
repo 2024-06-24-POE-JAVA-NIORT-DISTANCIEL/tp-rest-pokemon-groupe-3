@@ -8,14 +8,16 @@ import jakarta.validation.constraints.NotNull;
 @Table(name = "dresseur_objet")
 public class DresseurObjet {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     // attributs
 
-    @Id
     @ManyToOne
     @JoinColumn(name = "dresseur_id")
     private Dresseur dresseur;
 
-    @Id
     @ManyToOne
     @JoinColumn(name = "objet_id")
     private Objet objet;
@@ -26,10 +28,25 @@ public class DresseurObjet {
     private int quantite;
 
     // constructeurs
-    // laisser vide sauf cas particulier,
-    // dans ce cas, ajouter le constructeur par défaut sans paramètres
+
+    public DresseurObjet(Dresseur dresseur, Objet objet, int quantite) {
+        this.dresseur = dresseur;
+        this.objet = objet;
+        this.quantite = quantite;
+    }
+
+    public DresseurObjet() {
+    }
 
     // getters et setters
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Dresseur getDresseur() {
         return dresseur;

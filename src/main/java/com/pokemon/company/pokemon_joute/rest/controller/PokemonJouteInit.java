@@ -109,10 +109,10 @@ public class PokemonJouteInit {
         LOGGER.info("*****************************");
         LOGGER.info("");
 
-        objetService.save(new ObjetCreateDto("Pokiballe", 1200, TypeObjet.POKEBALL));
-        objetService.save(new ObjetCreateDto("Pokeballon", 1520, TypeObjet.POKEBALL));
-        objetService.save(new ObjetCreateDto("Potion de souffle mortel", 12000, TypeObjet.POTION));
-        objetService.save(new ObjetCreateDto("Potion de soin aleatoire", 4200, TypeObjet.POTION));
+        objetService.save(new ObjetCreateDto("Pokiballe", 40, TypeObjet.POKEBALL));
+        objetService.save(new ObjetCreateDto("Pokeballon", 60, TypeObjet.POKEBALL));
+        objetService.save(new ObjetCreateDto("Potion de souffle mortel", 450, TypeObjet.POTION));
+        objetService.save(new ObjetCreateDto("Potion de soin aleatoire", 80, TypeObjet.POTION));
         objetService.save(new ObjetCreateDto("Sac a Pokemons", 210, TypeObjet.DIVERS));
         objetService.save(new ObjetCreateDto("Housse de couette", 550, TypeObjet.DIVERS));
 

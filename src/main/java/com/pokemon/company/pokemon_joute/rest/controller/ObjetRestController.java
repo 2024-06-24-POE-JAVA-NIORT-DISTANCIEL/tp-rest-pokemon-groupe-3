@@ -2,7 +2,6 @@ package com.pokemon.company.pokemon_joute.rest.controller;
 
 import com.pokemon.company.pokemon_joute.dto.ObjetCreateDto;
 import com.pokemon.company.pokemon_joute.dto.ObjetResponseDto;
-import com.pokemon.company.pokemon_joute.mapper.DresseurMapper;
 import com.pokemon.company.pokemon_joute.mapper.ObjetMapper;
 import com.pokemon.company.pokemon_joute.model.Objet;
 import com.pokemon.company.pokemon_joute.service.ObjetService;
@@ -18,7 +17,6 @@ import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/objets")
 public class ObjetRestController {
 
     private final static Logger LOGGER = Logger.getLogger(String.valueOf(ObjetRestController.class));
@@ -31,7 +29,7 @@ public class ObjetRestController {
     @Autowired
     private ObjetMapper objetMapper;
 
-    @PostMapping
+    @PostMapping("/objets")
     public ResponseEntity<ObjetResponseDto> save(@RequestBody ObjetCreateDto objetCreateDto) {
         // @RequestBody : on récupère le Json et Spring Data le convertit en DTO
 
@@ -42,7 +40,7 @@ public class ObjetRestController {
         return ResponseEntity.status(HttpStatus.CREATED).body(objetResponseDto);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/objets/{id}")
     public ResponseEntity<ObjetResponseDto> findById(@PathVariable("id") Long id) {
         try {
             ObjetResponseDto objetResponseDto = objetService.findById(id);
@@ -53,7 +51,7 @@ public class ObjetRestController {
         }
     }
 
-    @GetMapping("/tous")
+    @GetMapping("/objets/tous")
     public ResponseEntity<List<ObjetResponseDto>> findAll() {
         List<ObjetResponseDto> objetResponseDtos = objetService.findAll();
 
@@ -71,7 +69,7 @@ public class ObjetRestController {
         return ResponseEntity.ok(objetResponseDtos);
     }
 
-    @GetMapping
+    @GetMapping("/objets")
     public ResponseEntity<List<Objet>> findByPlageDePrix(
             @RequestParam(value = "prixMin", required = false) Integer prixMin,
             @RequestParam(value = "prixMax", required = false) Integer prixMax) {
@@ -80,22 +78,25 @@ public class ObjetRestController {
         return ResponseEntity.ok(objets);
     }
 
-    @PostMapping("//achats")
+    @PostMapping("/achats")
     public ResponseEntity<String> acheter(@RequestParam Long dresseurId, @RequestParam Long objetId) {
         String resultat = objetService.acheter(dresseurId, objetId);
         if ("Bravo ! Tu as bien acheté l'objet".equals(resultat)) {
             return ResponseEntity.ok(resultat);
         } else {
+            ObjetResponseDto objet = objetService.findById(objetId);
+            LOGGER.info("Le portefeuille du dresseur n'est pas suffisant pour acheter: ");
+            logDetails.single(objetMapper.toObjet(objet));
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultat);
         }
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/objets/{id}")
     public void deleteById(@PathVariable("id") Long id) {
         objetService.deleteById(id);
     }
 
-    @DeleteMapping("/tous")
+    @DeleteMapping("/objets/tous")
     public void deleteAll() {
         objetService.deleteAll();
     }
