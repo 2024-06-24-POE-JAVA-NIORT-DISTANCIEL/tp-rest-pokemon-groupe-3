@@ -97,11 +97,23 @@ public class PokemonJouteInit {
         LOGGER.info("*******************************");
         LOGGER.info("");
 
-        attaqueService.save(new AttaqueCreateDto("Big Splash", Type.EAU, 100));
-        attaqueService.save(new AttaqueCreateDto("Vent divin", Type.VOL, 200));
-        attaqueService.save(new AttaqueCreateDto("Pollens toxiques", Type.PLANTE, 300));
-        attaqueService.save(new AttaqueCreateDto("Bzzzzzz ravageur", Type.INSECTE, 400));
-        attaqueService.save(new AttaqueCreateDto("Flammes de l'enfer", Type.FEU, 500));
+        attaqueService.save(new AttaqueCreateDto("Mini Splash", Type.EAU, 26));
+        attaqueService.save(new AttaqueCreateDto("Rafale", Type.VOL, 42));
+        attaqueService.save(new AttaqueCreateDto("Pollens toxiques", Type.PLANTE, 38));
+        attaqueService.save(new AttaqueCreateDto("Bzzzzzz ravageur", Type.INSECTE, 33));
+        attaqueService.save(new AttaqueCreateDto("Flammeches", Type.FEU, 16));
+
+        attaqueService.save(new AttaqueCreateDto("Big Splash", Type.EAU, 52));
+        attaqueService.save(new AttaqueCreateDto("Tornade", Type.VOL, 58));
+        attaqueService.save(new AttaqueCreateDto("Epines sanguinaires", Type.PLANTE, 60));
+        attaqueService.save(new AttaqueCreateDto("Venin", Type.INSECTE, 50));
+        attaqueService.save(new AttaqueCreateDto("Bombe incendiaire", Type.FEU, 70));
+
+        attaqueService.save(new AttaqueCreateDto("Raz de maree", Type.EAU, 104));
+        attaqueService.save(new AttaqueCreateDto("Vent divin", Type.VOL, 80));
+        attaqueService.save(new AttaqueCreateDto("Seve Hallucinogene", Type.PLANTE, 120));
+        attaqueService.save(new AttaqueCreateDto("Invasion de cafards", Type.INSECTE, 75));
+        attaqueService.save(new AttaqueCreateDto("Flammes de l'enfer", Type.FEU, 150));
 
         LOGGER.info("");
         LOGGER.info("*****************************");
@@ -122,21 +134,21 @@ public class PokemonJouteInit {
         LOGGER.info("******************************");
         LOGGER.info("");
 
-        especeService.save(new EspeceCreateDto("Carapuce", Type.EAU, 250, 1L));
-        especeService.save(new EspeceCreateDto("Magicarpe", Type.EAU, 350, 1L));
-        especeService.save(new EspeceCreateDto("Akwakwak", Type.EAU, 425, 1L));
-        especeService.save(new EspeceCreateDto("Nosferapti", Type.VOL, 120, 2L));
-        especeService.save(new EspeceCreateDto("Doduo", Type.VOL, 600, 2L));
-        especeService.save(new EspeceCreateDto("Chovsourir", Type.VOL, 350, 2L));
-        especeService.save(new EspeceCreateDto("Poussacha", Type.PLANTE, 440, 3L));
-        especeService.save(new EspeceCreateDto("Marisson", Type.PLANTE, 180, 3L));
-        especeService.save(new EspeceCreateDto("Majaspic", Type.PLANTE, 200, 3L));
-        especeService.save(new EspeceCreateDto("Aspicot", Type.INSECTE, 100, 4L));
-        especeService.save(new EspeceCreateDto("Parasect", Type.INSECTE, 800, 4L));
-        especeService.save(new EspeceCreateDto("Aeromite", Type.INSECTE, 500, 4L));
-        especeService.save(new EspeceCreateDto("Reptincel", Type.FEU, 400, 5L));
-        especeService.save(new EspeceCreateDto("Pyroli", Type.FEU, 666, 5L));
-        especeService.save(new EspeceCreateDto("Yuyu", Type.FEU, 135, 5L));
+        especeService.save(new EspeceCreateDto("Carapuce", Type.EAU, 50, 1L));
+        especeService.save(new EspeceCreateDto("Magicarpe", Type.EAU, 55, 1L));
+        especeService.save(new EspeceCreateDto("Akwakwak", Type.EAU, 60, 1L));
+        especeService.save(new EspeceCreateDto("Nosferapti", Type.VOL, 46, 2L));
+        especeService.save(new EspeceCreateDto("Doduo", Type.VOL, 60, 2L));
+        especeService.save(new EspeceCreateDto("Chovsourir", Type.VOL, 68, 2L));
+        especeService.save(new EspeceCreateDto("Poussacha", Type.PLANTE, 34, 3L));
+        especeService.save(new EspeceCreateDto("Marisson", Type.PLANTE, 40, 3L));
+        especeService.save(new EspeceCreateDto("Majaspic", Type.PLANTE, 44, 3L));
+        especeService.save(new EspeceCreateDto("Aspicot", Type.INSECTE, 14, 4L));
+        especeService.save(new EspeceCreateDto("Parasect", Type.INSECTE, 18, 4L));
+        especeService.save(new EspeceCreateDto("Aeromite", Type.INSECTE, 22, 4L));
+        especeService.save(new EspeceCreateDto("Reptincel", Type.FEU, 30, 5L));
+        especeService.save(new EspeceCreateDto("Pyroli", Type.FEU, 32, 5L));
+        especeService.save(new EspeceCreateDto("Yuyu", Type.FEU, 34, 5L));
 
         LOGGER.info("");
         LOGGER.info("*******************************");
