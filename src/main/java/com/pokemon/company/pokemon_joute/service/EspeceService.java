@@ -1,12 +1,13 @@
 package com.pokemon.company.pokemon_joute.service;
 
 import com.pokemon.company.pokemon_joute.dao.EspeceDao;
-import com.pokemon.company.pokemon_joute.dto.DresseurResponseDto;
 import com.pokemon.company.pokemon_joute.dto.EspeceCreateDto;
 import com.pokemon.company.pokemon_joute.dto.EspeceResponseDto;
-import com.pokemon.company.pokemon_joute.model.*;
-import com.pokemon.company.pokemon_joute.repository.*;
-
+import com.pokemon.company.pokemon_joute.model.Attaque;
+import com.pokemon.company.pokemon_joute.model.Espece;
+import com.pokemon.company.pokemon_joute.repository.AttaqueRepository;
+import com.pokemon.company.pokemon_joute.repository.EspeceRepository;
+import com.pokemon.company.pokemon_joute.repository.PokemonRepository;
 import com.pokemon.company.pokemon_joute.utils.LogDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

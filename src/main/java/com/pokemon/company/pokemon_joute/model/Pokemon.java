@@ -5,10 +5,13 @@ import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Entity
 @Table(name = "pokemon")
 public class Pokemon {
+
+    private static final Logger LOGGER = Logger.getLogger(String.valueOf(Pokemon.class));
 
     // attributs
     @Id
@@ -32,16 +35,16 @@ public class Pokemon {
 
     @ManyToMany
     @JsonManagedReference // annotation TRES IMPORTANTE : elle permet d'éviter une boucle infinie des entités
-                          // qui se référencent les unes les autres pokemon>espece>attaque>pokemon>espece>....
-                          // elle fonctionne de pair avec @JsonBackReference dans Pokemon
+    // qui se référencent les unes les autres pokemon>espece>attaque>pokemon>espece>....
+    // elle fonctionne de pair avec @JsonBackReference dans Pokemon
     @JoinTable(
             name = "pokemon_attaque",
             joinColumns = @JoinColumn(name = "pokemon_id"),
             inverseJoinColumns = @JoinColumn(name = "attaque_id")
     )
     private List<Attaque> attaques = new ArrayList<>(); // ici on initialise une liste vide
-                                                        // on commencera à la remplir dans le constructeur
-                                                        // avec l'attaque initiale de l'espèce
+    // on commencera à la remplir dans le constructeur
+    // avec l'attaque initiale de l'espèce
 
     // constructeurs
 
