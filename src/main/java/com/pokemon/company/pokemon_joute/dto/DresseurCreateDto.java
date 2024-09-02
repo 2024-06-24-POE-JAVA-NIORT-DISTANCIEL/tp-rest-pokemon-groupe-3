@@ -1,16 +1,29 @@
 package com.pokemon.company.pokemon_joute.dto;
 
 public class DresseurCreateDto {
-    private String pseudonyme;
-    private String motDePasse;
-    private Integer montantPortefeuille;
+    // ici on n'ajoute surtout pas l'id qui est gérée par la base de données
 
-    public String getPseudonyme() {
-        return pseudonyme;
+    private String pseudo;
+    private String motDePasse;
+
+    // constructeurs
+
+    public DresseurCreateDto(String pseudo, String motDePasse) {
+        this.pseudo = pseudo;
+        this.motDePasse = motDePasse;
     }
 
-    public void setPseudonyme(String pseudonyme) {
-        this.pseudonyme = pseudonyme;
+    public DresseurCreateDto() {
+    }
+
+// getters et setters
+
+    public String getPseudo() {
+        return pseudo;
+    }
+
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
     public String getMotDePasse() {
@@ -19,13 +32,5 @@ public class DresseurCreateDto {
 
     public void setMotDePasse(String motDePasse) {
         this.motDePasse = motDePasse;
-    }
-
-    public Integer getMontantPortefeuille() {
-        return montantPortefeuille;
-    }
-
-    public void setMontantPortefeuille(Integer montantPortefeuille) {
-        this.montantPortefeuille = montantPortefeuille;
     }
 }

@@ -2,8 +2,21 @@ package com.pokemon.company.pokemon_joute.dto;
 
 public class DresseurResponseDto {
     private Long id;
-    private String pseudonyme;
-    private Integer montantPortefeuille;
+    private String pseudo;
+    private Integer portefeuille;
+
+    // constructeurs
+
+    public DresseurResponseDto(Long id, String pseudo, Integer portefeuille) {
+        this.id = id;
+        this.pseudo = pseudo;
+        this.portefeuille = portefeuille;
+    }
+
+    public DresseurResponseDto() {
+    }
+
+    // getters et setters
 
     public Long getId() {
         return id;
@@ -13,19 +26,19 @@ public class DresseurResponseDto {
         this.id = id;
     }
 
-    public String getPseudonyme() {
-        return pseudonyme;
+    public String getPseudo() {
+        return pseudo;
     }
 
-    public void setPseudonyme(String pseudonyme) {
-        this.pseudonyme = pseudonyme;
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
-    public Integer getMontantPortefeuille() {
-        return montantPortefeuille;
+    public Integer getPortefeuille() {
+        return portefeuille;
     }
 
-    public void setMontantPortefeuille(Integer montantPortefeuille) {
-        this.montantPortefeuille = montantPortefeuille;
+    public void setPortefeuille(Integer portefeuille) {
+        this.portefeuille = portefeuille;
     }
 }

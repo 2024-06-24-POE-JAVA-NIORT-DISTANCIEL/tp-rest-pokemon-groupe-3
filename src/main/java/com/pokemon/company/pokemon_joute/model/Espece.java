@@ -23,10 +23,19 @@ public class Espece {
     private Attaque attaqueInitiale;
 
     // constructeurs
-    // laisser vide sauf cas particulier,
-    // dans ce cas, ajouter le constructeur par défaut sans paramètres
+
+    public Espece(String nom, Type type, int pvInitial, Attaque attaqueInitiale) {
+        this.nom = nom;
+        this.type = type;
+        this.pvInitial = pvInitial;
+        this.attaqueInitiale = attaqueInitiale;
+    }
+
+    public Espece() {
+    }
 
     // getters et setters
+
     public Long getId() {
         return id;
     }
@@ -59,11 +68,11 @@ public class Espece {
         this.pvInitial = pvInitial;
     }
 
-    public Attaque getAttaqueAttaqueInitiale() {
+    public Attaque getAttaqueInitiale() {
         return attaqueInitiale;
     }
 
-    public void setAttaqueAttaqueInitiale(Attaque attaqueInitiale) {
+    public void setAttaqueInitiale(Attaque attaqueInitiale) {
         this.attaqueInitiale = attaqueInitiale;
     }
 
@@ -79,5 +88,4 @@ public class Espece {
                 ", type=" + type +
                 '}';
     }
-
 }

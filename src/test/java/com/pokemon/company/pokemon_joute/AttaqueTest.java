@@ -2,6 +2,7 @@ package com.pokemon.company.pokemon_joute;
 
 import com.pokemon.company.pokemon_joute.dao.AttaqueDao;
 import com.pokemon.company.pokemon_joute.model.Attaque;
+import com.pokemon.company.pokemon_joute.repository.AttaqueRepository;
 import com.pokemon.company.pokemon_joute.utils.Type;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -16,6 +17,9 @@ public class AttaqueTest {
 
     @Autowired
     private AttaqueDao attaqueDao;
+
+    @Autowired
+    private AttaqueRepository attaqueRepository;
 
     @Test
     public void testSaveAttaque() {

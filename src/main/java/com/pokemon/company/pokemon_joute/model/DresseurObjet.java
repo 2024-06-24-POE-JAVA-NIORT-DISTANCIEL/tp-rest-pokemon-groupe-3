@@ -5,8 +5,8 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "inventaire")
-public class Inventaire {
+@Table(name = "dresseur_objet")
+public class DresseurObjet {
 
     // attributs
 
@@ -59,11 +59,10 @@ public class Inventaire {
 
     @Override
     public String toString() {
-        return "Inventaire{" +
+        return "DresseurObjet{" +
                 "dresseur=" + dresseur.getId() +
                 ", objet=" + objet.getId() +
                 ", quantite=" + quantite +
                 '}';
     }
 }
-

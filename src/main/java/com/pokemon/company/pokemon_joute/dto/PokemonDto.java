@@ -2,22 +2,28 @@ package com.pokemon.company.pokemon_joute.dto;
 
 public class PokemonDto {
 
-    private Long id;
     private String nom;
     private int niveau;
     private int experience;
     private int pv;
     private int pvMax;
+    private Long especeId;
 
-    private Long espece_id;
+    // constructeurs
 
-    public Long getId() {
-        return id;
+    public PokemonDto(String nom, int niveau, int experience, int pv, int pvMax, Long especeId) {
+        this.nom = nom;
+        this.niveau = niveau;
+        this.experience = experience;
+        this.pv = pv;
+        this.pvMax = pvMax;
+        this.especeId = especeId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public PokemonDto() {
     }
+
+// getters et setters
 
     public String getNom() {
         return nom;
@@ -59,11 +65,11 @@ public class PokemonDto {
         this.pvMax = pvMax;
     }
 
-    public Long getEspece_id() {
-        return espece_id;
+    public Long getEspeceId() {
+        return especeId;
     }
 
-    public void setEspece_id(Long espece_id) {
-        this.espece_id = espece_id;
+    public void setEspeceId(Long especeId) {
+        this.especeId = especeId;
     }
 }

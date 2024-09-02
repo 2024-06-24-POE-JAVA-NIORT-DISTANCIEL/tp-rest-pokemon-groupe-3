@@ -15,7 +15,6 @@ public class EspeceTest {
     @Autowired
     EspeceDao especeDao;
 
-
     @Test
     public void testDeleteEspece() {
 
@@ -46,6 +45,4 @@ public class EspeceTest {
         Assertions.assertEquals("un nom", espece.getNom());
 
     }
-
-
 }
