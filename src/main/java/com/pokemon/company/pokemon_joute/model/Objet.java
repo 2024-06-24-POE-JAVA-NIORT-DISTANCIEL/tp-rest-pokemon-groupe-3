@@ -19,16 +19,22 @@ public class Objet {
     private int prix;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "type" , nullable = false)
-    private TypeObjet type;
+    @Column(name = "type", nullable = false)
+    private TypeObjet typeObjet;
 
     @OneToMany(mappedBy = "objet")
-    private List<Inventaire> dresseurs;
+    private List<DresseurObjet> dresseurs;
 
     // constructeurs
-    // laisser vide sauf cas particulier,
-    // dans ce cas, ajouter le constructeur par défaut sans paramètres
 
+    public Objet(String nom, int prix, TypeObjet typeObjet) {
+        this.nom = nom;
+        this.prix = prix;
+        this.typeObjet = typeObjet;
+    }
+
+    public Objet() {
+    }
 
     // getters et setters
 
@@ -56,12 +62,12 @@ public class Objet {
         this.prix = prix;
     }
 
-    public TypeObjet getType() {
-        return type;
+    public TypeObjet getTypeObjet() {
+        return typeObjet;
     }
 
-    public void setType(TypeObjet type) {
-        this.type = type;
+    public void setTypeObjet(TypeObjet typeObjet) {
+        this.typeObjet = typeObjet;
     }
 
     // méthodes (si nécessaire)
@@ -72,7 +78,7 @@ public class Objet {
                 "id=" + id +
                 ", nom='" + nom + '\'' +
                 ", prix='" + prix + '\'' +
-                ", type=" + type +
+                ", type=" + typeObjet +
                 '}';
     }
 }

@@ -3,6 +3,26 @@
 Ce TP de la formation M2I Programmation Java Fullstack a pour but de simuler une gestion et des combats de Pokémons.
 Les langages utilisés sont **Java** et **SQL**. Ceci est construit à l'aide du framework **Spring Boot** et démontrera le fonctionnement de **WebServices** conformes à l'architecture **REST**.
 
+## Chemins des ressources HTTP REST
+	/objets		: ajouter un nouvel objet (POST)
+	/dresseurs	: ajouter un nouveau dresseur (POST)
+	/attaques	: ajouter une nouvelle attaque (POST)
+	/especes	: ajouter une nouvelle espece (POST)
+	/pokemons	: ajouter un nouveau pokemon (POST)
+	/{id}		: récupère ou efface une ressource par son id (GET / DEL)
+	/tous , /toutes	: récupère toutes les ressources (GET / DEL)
+	/achats?dresseurId=1&objetId=1	: acheter un objet (GET)
+	/objets?prixMin=1000		: récupérer les objets dont le prix vaut 1000 au minimum
+	/objets?prixMax=20		: récupérer les objets dont le prix vaut 20 au maximum
+	/objets?prixMin=2&prixMax=10000	: récupérer les objets dont le prix est entre 2 et 10000
+	/inventaire?dresseurId=1	: récupérer l'inventaire (la liste des objets) d'un dresseur
+	/dresseurs/1/pokemons		: récupérer les pokemons d'un dresseur (1 est son id)
+	/combats?pokemonId=1&pokemonId=2: lancer un combat entre deux pokemons
+	/chat?pokemonId=1		: faire parler un pokemon
+	/soin?pokemonId=1		: soigner un pokemon
+	/classement			: récupérer le classement des pokemons (par expérience)
+	/pokemons/1/attaques		: récupérer les attaques d'un pokemon
+
 ## Fichiers additionnels
 
 + **TP Pokemon.drawio.xml** : diagramme entité-association de l'application

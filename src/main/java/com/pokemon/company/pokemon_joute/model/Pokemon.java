@@ -1,7 +1,9 @@
 package com.pokemon.company.pokemon_joute.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -10,10 +12,10 @@ public class Pokemon {
 
     // attributs
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nom;
-    private int niveau;
+    private int niveau = 1;
 
     private int experience = 0;
 
@@ -29,17 +31,38 @@ public class Pokemon {
     private Dresseur dresseur;
 
     @ManyToMany
+    @JsonManagedReference // annotation TRES IMPORTANTE : elle permet d'éviter une boucle infinie des entités
+                          // qui se référencent les unes les autres pokemon>espece>attaque>pokemon>espece>....
+                          // elle fonctionne de pair avec @JsonBackReference dans Pokemon
     @JoinTable(
             name = "pokemon_attaque",
             joinColumns = @JoinColumn(name = "pokemon_id"),
             inverseJoinColumns = @JoinColumn(name = "attaque_id")
     )
-
-    private List<Attaque> attaques;
+    private List<Attaque> attaques = new ArrayList<>(); // ici on initialise une liste vide
+                                                        // on commencera à la remplir dans le constructeur
+                                                        // avec l'attaque initiale de l'espèce
 
     // constructeurs
-    // Laisser vide sauf cas particulier,
-    // dans ce cas, ajouter le constructeur par défaut sans paramètres
+
+    public Pokemon(String nom, Espece espece) {
+        // on récupère les pv de l'espèce pour initialiser ceux du pokemon créé
+        // les autres attributs sont réglés par défaut dans leur déclaration
+        int pv = espece.getPvInitial();
+
+        this.nom = nom;
+        this.pv = pv;
+        this.pvMax = pv;
+        this.espece = espece;
+
+        // on récupère l'attaque initiale de l'espece pour initialiser la liste d'attaques du pokemon avec
+        if (espece.getAttaqueInitiale() != null) {
+            this.attaques.add(espece.getAttaqueInitiale());
+        }
+    }
+
+    public Pokemon() {
+    }
 
     // getters et setters
 
@@ -119,7 +142,7 @@ public class Pokemon {
 
     @Override
     public String toString() {
-        return "Pokemon : {" +
+        return "Pokemon{" +
                 "id = " + id +
                 ", nom = " + nom + '\'' +
                 ", niveau = " + niveau +

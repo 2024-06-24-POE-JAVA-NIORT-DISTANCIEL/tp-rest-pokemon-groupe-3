@@ -45,4 +45,4 @@ local.properties
 .loadpath
 .recommenders
 
-application.properties
+/main/resources/application.properties

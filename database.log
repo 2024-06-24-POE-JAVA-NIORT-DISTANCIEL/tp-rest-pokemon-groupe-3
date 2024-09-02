@@ -1,0 +1,276 @@
+1725125917785|1|statement|select version()
+1725125917963|4|statement|select * from information_schema.sequences
+1725125917964|4|statement|select * from information_schema.sequences
+1725125918955|2|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725125918955|2|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725125918974|0|commit|
+1725125918974|1|commit|
+1725125918978|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725125918978|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725125918978|0|commit|
+1725125918979|0|commit|
+1725125918979|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725125918979|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725125918980|0|commit|
+1725125918980|0|commit|
+1725125918981|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725125918981|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725125918981|0|commit|
+1725125918981|0|commit|
+1725125918982|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725125918982|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725125918983|0|commit|
+1725125918983|0|commit|
+1725126045907|0|statement|select version()
+1725126045926|4|statement|select * from information_schema.sequences
+1725126045926|4|statement|select * from information_schema.sequences
+1725126046117|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126046117|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126046119|1|commit|
+1725126046119|1|commit|
+1725126046120|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126046120|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126046120|0|commit|
+1725126046120|0|commit|
+1725126046121|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126046121|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126046121|0|commit|
+1725126046121|0|commit|
+1725126046122|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126046122|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126046122|0|commit|
+1725126046122|0|commit|
+1725126046123|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126046123|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126046123|0|commit|
+1725126046123|0|commit|
+1725126079537|0|statement|select version()
+1725126079556|4|statement|select * from information_schema.sequences
+1725126079556|4|statement|select * from information_schema.sequences
+1725126079729|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126079729|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126079730|0|commit|
+1725126079730|0|commit|
+1725126079731|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126079731|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126079731|0|commit|
+1725126079731|0|commit|
+1725126079732|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126079732|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126079732|0|commit|
+1725126079732|0|commit|
+1725126079733|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126079733|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126079733|0|commit|
+1725126079733|0|commit|
+1725126079734|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126079734|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126079734|0|commit|
+1725126079734|0|commit|
+1725126136647|0|statement|select version()
+1725126136665|4|statement|select * from information_schema.sequences
+1725126136665|4|statement|select * from information_schema.sequences
+1725126136833|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126136833|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126136834|0|commit|
+1725126136834|0|commit|
+1725126136835|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126136835|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126136836|0|commit|
+1725126136836|0|commit|
+1725126136836|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126136836|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126136837|0|commit|
+1725126136837|0|commit|
+1725126136837|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126136837|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126136838|0|commit|
+1725126136838|0|commit|
+1725126136838|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126136838|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126136839|0|commit|
+1725126136839|0|commit|
+1725126142706|0|statement|select version()
+1725126142723|4|statement|select * from information_schema.sequences
+1725126142723|4|statement|select * from information_schema.sequences
+1725126142880|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126142881|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126142882|1|commit|
+1725126142882|1|commit|
+1725126142883|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126142883|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126142883|0|commit|
+1725126142883|0|commit|
+1725126142884|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126142884|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126142884|0|commit|
+1725126142884|0|commit|
+1725126142885|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126142885|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126142885|0|commit|
+1725126142885|0|commit|
+1725126142886|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126142886|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126142886|0|commit|
+1725126142886|0|commit|
+1725126149765|0|statement|select version()
+1725126149782|4|statement|select * from information_schema.sequences
+1725126149782|4|statement|select * from information_schema.sequences
+1725126149942|0|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126149942|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126149943|1|commit|
+1725126149944|1|commit|
+1725126149944|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126149944|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126149945|0|commit|
+1725126149945|0|commit|
+1725126149945|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126149945|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126149946|0|commit|
+1725126149946|0|commit|
+1725126149946|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126149946|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126149947|0|commit|
+1725126149947|0|commit|
+1725126149947|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126149947|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126149948|0|commit|
+1725126149948|0|commit|
+1725126222139|0|statement|select version()
+1725126222155|4|statement|select * from information_schema.sequences
+1725126222155|4|statement|select * from information_schema.sequences
+1725126222312|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126222312|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126222314|1|commit|
+1725126222314|1|commit|
+1725126222314|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126222314|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126222315|0|commit|
+1725126222315|0|commit|
+1725126222315|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126222315|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126222316|0|commit|
+1725126222316|0|commit|
+1725126222316|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126222316|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126222317|0|commit|
+1725126222317|0|commit|
+1725126222317|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126222317|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126222318|0|commit|
+1725126222318|0|commit|
+1725126231235|0|statement|select version()
+1725126231251|4|statement|select * from information_schema.sequences
+1725126231251|4|statement|select * from information_schema.sequences
+1725126231406|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126231406|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126231407|1|commit|
+1725126231407|1|commit|
+1725126231408|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126231408|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126231408|0|commit|
+1725126231408|0|commit|
+1725126231409|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126231409|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126231409|0|commit|
+1725126231409|0|commit|
+1725126231410|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126231410|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126231410|0|commit|
+1725126231410|0|commit|
+1725126231410|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126231411|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126231411|0|commit|
+1725126231411|0|commit|
+1725126238272|1|statement|select version()
+1725126238294|6|statement|select * from information_schema.sequences
+1725126238294|6|statement|select * from information_schema.sequences
+1725126238450|2|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126238450|2|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126238476|25|commit|
+1725126238476|25|commit|
+1725126238478|1|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126238478|1|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126238480|1|commit|
+1725126238480|1|commit|
+1725126238483|1|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126238483|1|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126238484|0|commit|
+1725126238484|0|commit|
+1725126238486|1|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126238486|1|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126238487|0|commit|
+1725126238487|0|commit|
+1725126238489|1|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126238489|1|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126238489|0|commit|
+1725126238489|0|commit|
+1725126290196|0|statement|select version()
+1725126290213|4|statement|select * from information_schema.sequences
+1725126290213|4|statement|select * from information_schema.sequences
+1725126290363|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126290363|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725126290365|1|commit|
+1725126290365|1|commit|
+1725126290366|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126290366|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725126290366|0|commit|
+1725126290366|0|commit|
+1725126290367|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126290367|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725126290367|0|commit|
+1725126290367|0|commit|
+1725126290368|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126290368|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725126290368|0|commit|
+1725126290368|0|commit|
+1725126290368|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126290368|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725126290369|0|commit|
+1725126290369|0|commit|
+1725131583260|0|statement|select version()
+1725131583277|4|statement|select * from information_schema.sequences
+1725131583277|4|statement|select * from information_schema.sequences
+1725131583456|0|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725131583456|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725131583458|1|commit|
+1725131583458|1|commit|
+1725131583459|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725131583459|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725131583459|0|commit|
+1725131583459|0|commit|
+1725131583460|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725131583460|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725131583460|0|commit|
+1725131583460|0|commit|
+1725131583460|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725131583461|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725131583461|0|commit|
+1725131583461|0|commit|
+1725131583461|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725131583461|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725131583462|0|commit|
+1725131583462|0|commit|
+1725131646533|0|statement|select version()
+1725131646549|4|statement|select * from information_schema.sequences
+1725131646549|4|statement|select * from information_schema.sequences
+1725131646697|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725131646697|1|statement|insert into attaque (prix,nom,typeObjet) values (100,'Big Splash','EAU') returning id
+1725131646699|1|commit|
+1725131646699|1|commit|
+1725131646700|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725131646700|0|statement|insert into attaque (prix,nom,typeObjet) values (200,'Vent divin','VOL') returning id
+1725131646700|0|commit|
+1725131646700|0|commit|
+1725131646701|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725131646701|0|statement|insert into attaque (prix,nom,typeObjet) values (300,'Pollens toxiques','PLANTE') returning id
+1725131646701|0|commit|
+1725131646701|0|commit|
+1725131646702|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725131646702|0|statement|insert into attaque (prix,nom,typeObjet) values (400,'Bzzzzzz ravageur','INSECTE') returning id
+1725131646702|0|commit|
+1725131646702|0|commit|
+1725131646702|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725131646703|0|statement|insert into attaque (prix,nom,typeObjet) values (500,'Flammes de l''enfer','FEU') returning id
+1725131646703|0|commit|
+1725131646703|0|commit|

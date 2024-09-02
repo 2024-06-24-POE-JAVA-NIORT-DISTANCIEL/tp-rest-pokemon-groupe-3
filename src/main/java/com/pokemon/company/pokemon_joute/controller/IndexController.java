@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @Controller
 public class IndexController {
     @GetMapping("/index")
-    public String afficheHello(){
+    public String afficheHello() {
         System.out.println("Le contrôleur Index est appelé");
         return "vue-hello";
     }
 
     @ModelAttribute("monMessage")
-    public String metDansLeContexteCaRoule(){
+    public String metDansLeContexteCaRoule() {
         return "Ca roule pas mal sur cette page dynamique !!!!";
     }
 }

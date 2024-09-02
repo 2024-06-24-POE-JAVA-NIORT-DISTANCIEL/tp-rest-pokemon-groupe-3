@@ -16,8 +16,8 @@ public class PokemonTest {
 //        Espece salameche1 = new Espece();
 //
 //        salameche1.setNom("Salamèche");
-//        salameche1.setPvInitial(35);
-//        salameche1.setType(Type.FEU);
+//        salameche1.setPrix(35);
+//        salameche1.setTypeObjet(Type.FEU);
 //
 //        PokemonDto salameche = new PokemonDto();
 //        salameche.setNom("Salamèche");
@@ -42,8 +42,8 @@ public class PokemonTest {
 //        Espece carapuce1 = new Espece();
 //
 //        carapuce1.setNom("carapuce");
-//        carapuce1.setPvInitial(35);
-//        carapuce1.setType(Type.EAU);
+//        carapuce1.setPrix(35);
+//        carapuce1.setTypeObjet(Type.EAU);
 //
 //        PokemonDto carapuce = new PokemonDto();
 //        carapuce.setNom("carapuce");
@@ -86,8 +86,8 @@ public class PokemonTest {
 //        Espece salameche1 = new Espece();
 //
 //        salameche1.setNom("Salamèche");
-//        salameche1.setPvInitial(35);
-//        salameche1.setType(Type.FEU);
+//        salameche1.setPrix(35);
+//        salameche1.setTypeObjet(Type.FEU);
 //
 //        PokemonDto salameche = new PokemonDto();
 //        salameche.setNom("Salamèche");
@@ -120,8 +120,8 @@ public class PokemonTest {
 //        Espece salameche1 = new Espece();
 //
 //        salameche1.setNom("Salamèche");
-//        salameche1.setPvInitial(35);
-//        salameche1.setType(Type.FEU);
+//        salameche1.setPrix(35);
+//        salameche1.setTypeObjet(Type.FEU);
 //
 //        PokemonDto salameche = new PokemonDto();
 //        salameche.setNom("Salamèche");

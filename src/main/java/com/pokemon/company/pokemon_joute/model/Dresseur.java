@@ -3,6 +3,7 @@ package com.pokemon.company.pokemon_joute.model;
 import jakarta.persistence.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "dresseur")
@@ -19,18 +20,25 @@ public class Dresseur {
 
     private String motDePasse;
 
-    private Integer portefeuille = 100; // ici le choix d'Integer plutôt qu'un int reflète le nullable
+    private int portefeuille = 100;
 
     @OneToMany(mappedBy = "dresseur")
     private List<Pokemon> pokemons;
 
     @OneToMany(mappedBy = "dresseur")
-    private List<Inventaire> inventaires;
+    private List<DresseurObjet> dresseurObjets;
 
     // constructeurs
     // laisser vide sauf cas particulier,
     // dans ce cas, ajouter le constructeur par défaut sans paramètres
 
+    public Dresseur(String pseudo, String motDePasse) {
+        this.pseudo = pseudo;
+        this.motDePasse = motDePasse;
+    }
+
+    public Dresseur() {
+    }
 
     // getters et setters
 
@@ -58,20 +66,20 @@ public class Dresseur {
         this.motDePasse = motDePasse;
     }
 
-    public Integer getPortefeuille() {
+    public int getPortefeuille() {
         return portefeuille;
     }
 
-    public void setPortefeuille(Integer portefeuille) {
+    public void setPortefeuille(int portefeuille) {
         this.portefeuille = portefeuille;
     }
 
-    public List<Inventaire> getInventaires() {
-        return inventaires;
+    public List<DresseurObjet> getDresseurObjets() {
+        return dresseurObjets;
     }
 
-    public void setInventaires(List<Inventaire> inventaires) {
-        this.inventaires = inventaires;
+    public void setDresseurObjets(List<DresseurObjet> dresseurObjets) {
+        this.dresseurObjets = dresseurObjets;
     }
 
     public List<Pokemon> getPokemons() {
@@ -92,5 +100,12 @@ public class Dresseur {
                 ", motDePasse='" + motDePasse + '\'' +
                 ", portefeuille=" + portefeuille +
                 '}';
+    }
+
+    @Transient
+    public List<Objet> getInventaire() {
+        return dresseurObjets.stream()
+                .map(DresseurObjet::getObjet)
+                .collect(Collectors.toList());
     }
 }

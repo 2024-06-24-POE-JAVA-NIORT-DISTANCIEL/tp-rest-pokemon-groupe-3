@@ -1,6 +1,6 @@
 package com.pokemon.company.pokemon_joute.dto;
 
-import com.pokemon.company.pokemon_joute.model.Inventaire;
+import com.pokemon.company.pokemon_joute.model.DresseurObjet;
 import com.pokemon.company.pokemon_joute.model.Pokemon;
 
 import java.util.List;
@@ -10,7 +10,21 @@ public class DresseurDto {
     private String pseudo;
     private Integer porteFeuille;
     private List<Pokemon> pokemons;
-    private List<Inventaire> inventaires;
+    private List<DresseurObjet> dresseurObjets;
+
+    // constructeurs
+
+    public DresseurDto(String pseudo, Integer porteFeuille, List<Pokemon> pokemons, List<DresseurObjet> dresseurObjets) {
+        this.pseudo = pseudo;
+        this.porteFeuille = porteFeuille;
+        this.pokemons = pokemons;
+        this.dresseurObjets = dresseurObjets;
+    }
+
+    public DresseurDto() {
+    }
+
+    // getters et setters
 
     public String getPseudo() {
         return pseudo;
@@ -36,11 +50,11 @@ public class DresseurDto {
         this.pokemons = pokemons;
     }
 
-    public List<Inventaire> getInventaires() {
-        return inventaires;
+    public List<DresseurObjet> getDresseurObjets() {
+        return dresseurObjets;
     }
 
-    public void setInventaires(List<Inventaire> inventaires) {
-        this.inventaires = inventaires;
+    public void setDresseurObjets(List<DresseurObjet> dresseurObjets) {
+        this.dresseurObjets = dresseurObjets;
     }
 }

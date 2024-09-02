@@ -1,5 +1,6 @@
 package com.pokemon.company.pokemon_joute.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.pokemon.company.pokemon_joute.utils.Type;
 import jakarta.persistence.*;
 
@@ -23,15 +24,21 @@ public class Attaque {
     private int degats;
 
     @ManyToMany(mappedBy = "attaques")
+    @JsonBackReference // annotation TRES IMPORTANTE : elle permet d'éviter une boucle infinie des entités
+                       // qui se référencent les unes les autres pokemon>espece>attaque>pokemon>espece>....
+                       // elle fonctionne de pair avec @JsonManagedReference dans Pokemon
     private List<Pokemon> pokemons;
 
-    // private PokemonDto pokemon; // Relation @ManyToOne avec Pokémon, voir plus tard
-
     // constructeurs
-    // laisser vide sauf cas particulier,
-    // dans ce cas, ajouter le constructeur par défaut sans paramètres
 
-    // private PokemonDto pokemon; // Relation @ManyToOne avec Pokémon, voir plus tard
+    public Attaque(String nom, Type type, int degats) {
+        this.nom = nom;
+        this.type = type;
+        this.degats = degats;
+    }
+
+    public Attaque() {
+    }
 
     // getters et setters
     public Long getId() {

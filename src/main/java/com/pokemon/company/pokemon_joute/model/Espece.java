@@ -1,15 +1,10 @@
 package com.pokemon.company.pokemon_joute.model;
 
 import com.pokemon.company.pokemon_joute.utils.Type;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "espece")
 public class Espece {
 
     @Id
@@ -18,22 +13,29 @@ public class Espece {
 
     private String nom;
 
+    @Enumerated(EnumType.STRING)
     private Type type;
 
-    private Integer pvInitial;
+    private int pvInitial;
 
     @ManyToOne
-    @JoinColumn(name = "ATTAQUE_INITIALE_ID")
-    private Attaque attaque;
+    @JoinColumn(name = "attaque_initiale_id")
+    private Attaque attaqueInitiale;
 
     // constructeurs
 
-    // laisser vide sauf cas particulier,
-    // dans ce cas, ajouter le constructeur par défaut sans paramètres
+    public Espece(String nom, Type type, int pvInitial, Attaque attaqueInitiale) {
+        this.nom = nom;
+        this.type = type;
+        this.pvInitial = pvInitial;
+        this.attaqueInitiale = attaqueInitiale;
+    }
 
-    //private Attaque attaqueInitiale;
+    public Espece() {
+    }
 
     // getters et setters
+
     public Long getId() {
         return id;
     }
@@ -66,15 +68,24 @@ public class Espece {
         this.pvInitial = pvInitial;
     }
 
-    public Attaque getAttaque() {
-        return attaque;
+    public Attaque getAttaqueInitiale() {
+        return attaqueInitiale;
     }
 
-    public void setAttaque(Attaque attaque) {
-        this.attaque = attaque;
+    public void setAttaqueInitiale(Attaque attaqueInitiale) {
+        this.attaqueInitiale = attaqueInitiale;
     }
 
     // méthodes (si nécessaire)
 
-
+    @Override
+    public String toString() {
+        return "Espece{" +
+                "id=" + id +
+                ", nom='" + nom + '\'' +
+                ", pvInitial=" + pvInitial +
+                ", attaqueInitiale=" + attaqueInitiale +
+                ", type=" + type +
+                '}';
+    }
 }

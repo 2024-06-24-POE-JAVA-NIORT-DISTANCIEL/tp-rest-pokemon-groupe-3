@@ -1,11 +1,8 @@
 package com.pokemon.company.pokemon_joute.dao;
 
-import com.pokemon.company.pokemon_joute.model.Dresseur;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
-@Repository
+import com.pokemon.company.pokemon_joute.model.Dresseur;
+
 public interface DresseurDao extends CrudRepository<Dresseur, Long> {
-
-
 }

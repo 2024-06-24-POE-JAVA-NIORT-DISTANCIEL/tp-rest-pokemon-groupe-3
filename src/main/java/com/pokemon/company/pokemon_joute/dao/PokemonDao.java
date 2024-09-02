@@ -6,9 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 public interface PokemonDao extends CrudRepository<Pokemon, Long> {
-
     List<Pokemon> findByNomContainingIgnoreCaseOrderByNomDesc(String nom);
-
 }
