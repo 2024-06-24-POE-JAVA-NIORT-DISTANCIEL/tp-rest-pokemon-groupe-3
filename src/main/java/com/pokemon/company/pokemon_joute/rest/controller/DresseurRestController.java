@@ -70,6 +70,17 @@ public class DresseurRestController {
         return ResponseEntity.ok(dresseurResponseDtos);
     }
 
+    @GetMapping("/inventaire")
+    public ResponseEntity<DresseurResponseDto> getInventaire(@RequestParam(value = "dresseurId", required = true) Long dresseurId) {
+        try {
+            DresseurResponseDto dresseurResponseDto = dresseurService.getInventaire(dresseurId);
+            return ResponseEntity.ok(dresseurResponseDto);
+        } catch (IllegalArgumentException e) {
+            LOGGER.info("DresseurRestController a leve une exception " + e + " pour argument illegal: " + dresseurId);
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @DeleteMapping("{id}")
     public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
         DresseurResponseDto dresseur = dresseurService.findById(id);

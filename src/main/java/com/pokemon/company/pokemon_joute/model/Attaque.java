@@ -27,6 +27,7 @@ public class Attaque {
     @JsonBackReference // annotation TRES IMPORTANTE : elle permet d'éviter une boucle infinie des entités
                        // qui se référencent les unes les autres pokemon>espece>attaque>pokemon>espece>....
                        // elle fonctionne de pair avec @JsonManagedReference dans Pokemon
+                       // à utiliser normalement sur les DTOs !
     private List<Pokemon> pokemons;
 
     // constructeurs

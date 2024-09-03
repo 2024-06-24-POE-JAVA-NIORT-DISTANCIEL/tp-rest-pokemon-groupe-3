@@ -37,6 +37,7 @@ public class Pokemon {
     @JsonManagedReference // annotation TRES IMPORTANTE : elle permet d'éviter une boucle infinie des entités
     // qui se référencent les unes les autres pokemon>espece>attaque>pokemon>espece>....
     // elle fonctionne de pair avec @JsonBackReference dans Pokemon
+    // à utiliser normalement sur les DTOs !
     @JoinTable(
             name = "pokemon_attaque",
             joinColumns = @JoinColumn(name = "pokemon_id"),

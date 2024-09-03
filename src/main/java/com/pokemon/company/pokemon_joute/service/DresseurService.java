@@ -60,6 +60,15 @@ public class DresseurService {
         return toDresseurResponseDto(dresseurRepository.findById(id));
     }
 
+    public DresseurResponseDto getInventaire(Long id) {
+        Dresseur dresseur = dresseurRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Aucun dresseur trouvée avec l'identifiant: " + id));
+            LOGGER.info("Le dresseur '" + dresseur.getPseudo() + "' est recupere par son identifiant: " + id);
+            logDetails.single(dresseur);
+
+        return toDresseurResponseDto(dresseurRepository.findById(id));
+    }
+
     @Transactional
     public void deleteById(Long id) {
         LOGGER.info("\nLe dresseur '" + dresseurRepository.findById(id) + "' est supprime par son identifiant: " + id);

@@ -262,6 +262,12 @@ public class PokemonService {
             combattantB = findById(id1, true);
         }
 
+        String especeCombattantA = especeService.findById(combattantA.getEspeceId(), true).getNom();
+        String especeCombattantB = especeService.findById(combattantB.getEspeceId(), true).getNom();
+        LOGGER.info("A ma gauche nous avons: " + combattantA.getNom() + " (espece: " + especeCombattantA + ", niveau: " + combattantA.getNiveau() + ", PV: " + combattantA.getPv() + ")");
+        LOGGER.info("et a ma droite se presente: " + combattantB.getNom() + " (espece: " + especeCombattantB + ", niveau: " + combattantB.getNiveau() + ", PV: " + combattantB.getPv() + ")");
+        kb.nextLine();
+
         LOGGER.info("Que le combat de Pokemons commence !\n");
         kb.nextLine();
 

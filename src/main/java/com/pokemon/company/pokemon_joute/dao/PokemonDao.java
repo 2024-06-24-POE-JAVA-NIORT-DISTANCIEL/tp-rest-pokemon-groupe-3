@@ -7,6 +7,4 @@ import java.util.List;
 
 public interface PokemonDao extends CrudRepository<Pokemon, Long> {
     List<Pokemon> findByNomContainingIgnoreCaseOrderByNomDesc(String nom);
-
-
 }
