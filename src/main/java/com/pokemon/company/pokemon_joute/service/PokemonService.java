@@ -150,9 +150,14 @@ public class PokemonService {
     }
 
     public List<PokemonResponseDto> findAll() {
-        List<Pokemon> pokemons = pokemonRepository.findAll();
-        LOGGER.info("Tous les pokemons sont recuperes (" + pokemons.size() + " pokemon(s))");
+        return findAll(false);
+    }
 
+    public List<PokemonResponseDto> findAll(Boolean disableLog) {
+        List<Pokemon> pokemons = pokemonRepository.findAll();
+        if (!disableLog) {
+            LOGGER.info("Tous les pokemons sont recuperes (" + pokemons.size() + " pokemon(s))");
+        }
         return pokemonRepository.findAll().stream()
                 .map(pokemon -> toPokemonResponseDto(Optional.of(pokemon)))
                 .collect(Collectors.toList());
@@ -288,6 +293,30 @@ public class PokemonService {
             tourDeCombat++;
             kb.nextLine();
         }
+    }
+
+    // cette méthode permet de faire parler des pokemons
+    public void chat(Long pokemonId) {
+        Random randomizerRepetitionNom = new Random();
+        Random randomizerEntier = new Random();
+        StringBuilder message = new StringBuilder();
+        String symbole = "";
+
+        int randomEntier = randomizerEntier.nextInt(3) + 1;
+        int repetitions = randomizerRepetitionNom.nextInt(3) + 1;
+        for (int n = 1; n <= repetitions; n++) {
+            String nomPokemon = findById(pokemonId, true).getNom();
+            message.append(nomPokemon + " ");
+            switch (randomEntier) {
+                case 1 -> symbole = ".";
+                case 2 -> symbole = "!";
+                case 3 -> symbole = "?";
+                default -> symbole = "+";
+            }
+        }
+        message.append(symbole);
+
+        LOGGER.info(message.toString());
     }
 
     // méthodes privées

@@ -15,6 +15,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
@@ -100,4 +101,26 @@ public class PokemonRestController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    @GetMapping("/chat")
+    public ResponseEntity<String> chat(
+            @RequestParam(value = "pokemonId", required = false) Long pokemonId) {
+
+        try {
+            if (pokemonId == null) {
+                List<PokemonResponseDto> pokemons = pokemonService.findAll(true);
+                if (pokemons.isEmpty()) {
+                    return ResponseEntity.badRequest().body("Aucun Pokemon disponible");
+                }
+                Random random = new Random();
+                PokemonResponseDto randomPokemon = pokemons.get(random.nextInt(pokemons.size()));
+                pokemonId = randomPokemon.getId();
+            }
+            pokemonService.chat(pokemonId);
+            return ResponseEntity.ok().build();
+        } catch (PokemonCombatException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
 }
