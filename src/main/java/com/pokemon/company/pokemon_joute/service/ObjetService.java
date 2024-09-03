@@ -13,6 +13,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
@@ -147,8 +148,19 @@ public class ObjetService {
             LOGGER.info("L'objet n'a pas ete trouve dans l'inventaire");
 
             DresseurObjet nouveauDresseurObjet = new DresseurObjet(dresseur, objetEnVente, 1);
-            dresseur.getDresseurObjets().add(nouveauDresseurObjet);
-            objetEnVente.getDresseurObjets().add(nouveauDresseurObjet);
+            List<DresseurObjet> dresseurobjets = new ArrayList<>();
+            if (dresseur.getDresseurObjets() != null){
+                dresseurobjets = dresseur.getDresseurObjets();
+            }
+            dresseurobjets.add(nouveauDresseurObjet);
+            dresseur.setDresseurObjets(dresseurobjets);
+
+            List<DresseurObjet> objetDresseurobjets = new ArrayList<>();
+            if (objetEnVente.getDresseurObjets() != null){
+                objetDresseurobjets = objetEnVente.getDresseurObjets();
+            }
+            objetDresseurobjets.add(nouveauDresseurObjet);
+            objetEnVente.setDresseurObjets(objetDresseurobjets);
         }
 
         dresseur.setPortefeuille(dresseur.getPortefeuille() - objetEnVente.getPrix());
