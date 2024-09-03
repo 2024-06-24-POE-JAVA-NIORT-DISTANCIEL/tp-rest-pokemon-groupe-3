@@ -69,8 +69,14 @@ public class AttaqueService {
     }
 
     public List<AttaqueResponseDto> findAll() {
+        return findAll(false);
+    }
+
+    public List<AttaqueResponseDto> findAll(Boolean disableLog) {
         List<Attaque> attaques = attaqueRepository.findAll();
-        LOGGER.info("Toutes les attaques sont recuperees (" + attaques.size() + " attaque(s))");
+        if (!disableLog) {
+            LOGGER.info("Toutes les attaques sont recuperees (" + attaques.size() + " attaque(s))");
+        }
 
         return attaqueRepository.findAll().stream()
                 .map(attaque -> toAttaqueResponseDto(Optional.of(attaque)))
