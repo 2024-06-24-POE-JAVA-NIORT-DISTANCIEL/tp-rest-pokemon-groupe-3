@@ -2,6 +2,7 @@ package com.pokemon.company.pokemon_joute.service;
 
 import com.pokemon.company.pokemon_joute.dto.ObjetCreateDto;
 import com.pokemon.company.pokemon_joute.dto.ObjetResponseDto;
+import com.pokemon.company.pokemon_joute.mapper.ObjetMapper;
 import com.pokemon.company.pokemon_joute.model.Dresseur;
 import com.pokemon.company.pokemon_joute.model.DresseurObjet;
 import com.pokemon.company.pokemon_joute.model.Objet;
@@ -21,14 +22,13 @@ import java.util.stream.Collectors;
 public class ObjetService {
 
     private final static Logger LOGGER = Logger.getLogger(String.valueOf(Objet.class));
-
-    private LogDetails logDetails = new LogDetails();
-
     @Autowired
     ObjetRepository objetRepository;
-
     @Autowired
     DresseurRepository dresseurRepository;
+    private LogDetails logDetails = new LogDetails();
+    @Autowired
+    private ObjetMapper objetMapper;
 
     @Transactional
     public ObjetResponseDto save(ObjetCreateDto objetCreateDto) {
@@ -97,36 +97,68 @@ public class ObjetService {
         Optional<Dresseur> optionalDresseur = dresseurRepository.findById(dresseurId);
         Optional<Objet> optionalObjet = objetRepository.findById(objetId);
 
+        LOGGER.info("");
         if (optionalDresseur.isEmpty() || optionalObjet.isEmpty()) {
             return "\nDresseur ou objet non trouve";
         }
 
         Dresseur dresseur = optionalDresseur.get();
-        Objet objet = optionalObjet.get();
-
-        if (dresseur.getPortefeuille() < objet.getPrix()) {
-            return "\nTu n'as pas assez d'argent, snif :(";
+        Objet objetEnVente = optionalObjet.get();
+        StringBuilder message = new StringBuilder();
+        message.append("Le portefeuille de " + dresseur.getPseudo() + " contient "
+                                   + dresseur.getPortefeuille()
+                                   + " Pokedollars");
+        Boolean portefeuilleSuffisant = false;
+        if (dresseur.getPortefeuille() < objetEnVente.getPrix()) {
+            message.append(" et n'est pas suffisant pour acheter cet objet : ");
+        } else {
+            message.append(" et ce dresseur peut acheter cet objet : ");
+            portefeuilleSuffisant = true;
         }
 
-        if (dresseur.getDresseurObjets() != null) {
-            boolean foundInInventaire = false;
+        message.append(objetEnVente.getNom());
+        findById(objetId);
+        LOGGER.info(message.toString());
+
+        if (!portefeuilleSuffisant) return "\nTu n'as pas assez d'argent, snif :(";
+
+        LOGGER.info("- Debut de la transaction -");
+
+        boolean foundInInventaire = false;
+
+        // on vérifie si ce dresseur possède déjà l'objet
+        List<Objet> objets = dresseur.getInventaire();
+        for (Objet objet : objets) {
+            if (objet == objetEnVente) {
+                foundInInventaire = true;
+            }
+        }
+
+        if (foundInInventaire) {
+            LOGGER.info("L'objet est deja dans l'inventaire");
+
             for (DresseurObjet dresseurObjet : dresseur.getDresseurObjets()) {
-                if (dresseurObjet.getObjet().getId().equals(objet.getId())) {
+                if (dresseurObjet.getObjet().getId().equals(objetEnVente.getId())) {
                     dresseurObjet.setQuantite(dresseurObjet.getQuantite() + 1);
-                    foundInInventaire = true;
                     break;
                 }
             }
-            if (!foundInInventaire) {
-                DresseurObjet nouveauDresseurObjet = new DresseurObjet(dresseur, objet, 1);
-                dresseur.getDresseurObjets().add(nouveauDresseurObjet);
-            }
+        } else {
+            LOGGER.info("L'objet n'a pas ete trouve dans l'inventaire");
+
+            DresseurObjet nouveauDresseurObjet = new DresseurObjet(dresseur, objetEnVente, 1);
+            dresseur.getDresseurObjets().add(nouveauDresseurObjet);
+            objetEnVente.getDresseurObjets().add(nouveauDresseurObjet);
         }
 
-        dresseur.setPortefeuille(dresseur.getPortefeuille() - objet.getPrix());
+        dresseur.setPortefeuille(dresseur.getPortefeuille() - objetEnVente.getPrix());
         dresseurRepository.save(dresseur);
+        objetRepository.save(objetEnVente);
 
-        return "Bravo ! Tu as bien achete '" + objet.getNom() + "'";
+        LOGGER.info("Bravo ! Tu as bien achete '" + objetEnVente.getNom() + "'");
+        LOGGER.info("- Fin de la transaction -");
+
+        return "transaction success";
     }
 
     public List<Objet> findByPlageDePrix(Integer prixMin, Integer prixMax) {
@@ -142,13 +174,16 @@ public class ObjetService {
             if (!objets.isEmpty()) LOGGER.info(objets.size() + " objets trouves :");
         } else if (prixMin == null) {
             objets = objetRepository.findByPrixLessThanEqual(prixMax);
-            if (!objets.isEmpty()) LOGGER.info(objets.size() + " objets trouves coutant moins que " + prixMax + " Pokedollars :");
+            if (!objets.isEmpty())
+                LOGGER.info(objets.size() + " objets trouves coutant moins que " + prixMax + " Pokedollars :");
         } else if (prixMax == null) {
             objets = objetRepository.findByPrixGreaterThanEqual(prixMin);
-            if (!objets.isEmpty()) LOGGER.info(objets.size() + " objets trouves coutant plus que " + prixMin + " Pokedollars :");
+            if (!objets.isEmpty())
+                LOGGER.info(objets.size() + " objets trouves coutant plus que " + prixMin + " Pokedollars :");
         } else {
             objets = objetRepository.findByPrixBetween(prixMin, prixMax);
-            if (!objets.isEmpty()) LOGGER.info(objets.size() + " objets trouves entre " + prixMin + " et " + prixMax + " Pokedollars :");
+            if (!objets.isEmpty())
+                LOGGER.info(objets.size() + " objets trouves entre " + prixMin + " et " + prixMax + " Pokedollars :");
         }
 
         // ici on peut faire isEmpty() car objets n'est plus null, c'est une liste vide

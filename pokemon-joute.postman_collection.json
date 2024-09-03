@@ -628,30 +628,6 @@
 					"response": []
 				},
 				{
-					"name": "récupérer l'inventaire",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/inventaire?dresseurId=1",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"inventaire"
-							],
-							"query": [
-								{
-									"key": "dresseurId",
-									"value": "1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "récupérer les pokemons",
 					"request": {
 						"method": "GET",
@@ -666,6 +642,26 @@
 								"dresseurs",
 								"1",
 								"pokemons"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "récupérer l'inventaire",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/dresseurs/1/inventaire",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"dresseurs",
+								"1",
+								"inventaire"
 							]
 						}
 					},

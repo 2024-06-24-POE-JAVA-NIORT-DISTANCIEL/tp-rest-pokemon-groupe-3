@@ -81,12 +81,12 @@ public class ObjetRestController {
     @PostMapping("/achats")
     public ResponseEntity<String> acheter(@RequestParam Long dresseurId, @RequestParam Long objetId) {
         String resultat = objetService.acheter(dresseurId, objetId);
-        if ("Bravo ! Tu as bien acheté l'objet".equals(resultat)) {
+
+        if ("transaction success".equals(resultat)) {
+            LOGGER.info("La transaction s'est deroulee correctement\n");
             return ResponseEntity.ok(resultat);
         } else {
-            ObjetResponseDto objet = objetService.findById(objetId);
-            LOGGER.info("Le portefeuille du dresseur n'est pas suffisant pour acheter: ");
-            logDetails.single(objetMapper.toObjet(objet));
+            LOGGER.info("La transaction n'a pas pu etre effectuee\n");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(resultat);
         }
     }

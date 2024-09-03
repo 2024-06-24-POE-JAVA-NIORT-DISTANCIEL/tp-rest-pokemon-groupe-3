@@ -23,7 +23,8 @@ public class Objet {
     private TypeObjet typeObjet;
 
     @OneToMany(mappedBy = "objet")
-    private List<DresseurObjet> dresseurs;
+
+    private List<DresseurObjet> dresseurObjets;
 
     // constructeurs
 
@@ -68,6 +69,14 @@ public class Objet {
 
     public void setTypeObjet(TypeObjet typeObjet) {
         this.typeObjet = typeObjet;
+    }
+
+    public List<DresseurObjet> getDresseurObjets() {
+        return dresseurObjets;
+    }
+
+    public void setDresseurObjets(List<DresseurObjet> dresseurObjets) {
+        this.dresseurObjets = dresseurObjets;
     }
 
     // méthodes (si nécessaire)

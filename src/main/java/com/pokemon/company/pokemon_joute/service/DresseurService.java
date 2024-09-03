@@ -2,6 +2,7 @@ package com.pokemon.company.pokemon_joute.service;
 
 import com.pokemon.company.pokemon_joute.dto.*;
 import com.pokemon.company.pokemon_joute.model.Dresseur;
+import com.pokemon.company.pokemon_joute.model.Objet;
 import com.pokemon.company.pokemon_joute.repository.DresseurRepository;
 import com.pokemon.company.pokemon_joute.utils.LogDetails;
 import jakarta.transaction.Transactional;
@@ -17,11 +18,9 @@ import java.util.stream.Collectors;
 public class DresseurService {
 
     private static final Logger LOGGER = Logger.getLogger(String.valueOf(Dresseur.class));
-
-    private LogDetails logDetails = new LogDetails();
-
     @Autowired
     DresseurRepository dresseurRepository;
+    private LogDetails logDetails = new LogDetails();
 
     @Transactional
     public DresseurResponseDto save(DresseurCreateDto dresseurCreateDto) {
@@ -60,13 +59,18 @@ public class DresseurService {
         return toDresseurResponseDto(dresseurRepository.findById(id));
     }
 
-    public DresseurResponseDto getInventaire(Long id) {
+    public void getInventaire(Long id) {
         Dresseur dresseur = dresseurRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Aucun dresseur trouvée avec l'identifiant: " + id));
-            LOGGER.info("Le dresseur '" + dresseur.getPseudo() + "' est recupere par son identifiant: " + id);
-            logDetails.single(dresseur);
+        LOGGER.info("Le dresseur '" + dresseur.getPseudo() + "' est recupere par son identifiant: " + id);
 
-        return toDresseurResponseDto(dresseurRepository.findById(id));
+        List<Objet> objets = dresseur.getInventaire();
+        if (objets.size() != 0) {
+            LOGGER.info("Il possede les objets suivants : ");
+            logDetails.list(objets);
+        } else {
+            LOGGER.info("L'inventaire est vide");
+        }
     }
 
     @Transactional
@@ -81,7 +85,8 @@ public class DresseurService {
 
         return dresseurRepository.findAll().stream()
                 .map(dresseur -> toDresseurResponseDto(Optional.of(dresseur)))
-                .collect(Collectors.toList());    }
+                .collect(Collectors.toList());
+    }
 
     public void deleteAll() {
         LOGGER.info("Tous les dresseurs sont supprimes");

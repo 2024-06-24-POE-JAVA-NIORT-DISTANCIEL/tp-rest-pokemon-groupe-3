@@ -25,7 +25,7 @@ public class Dresseur {
     @OneToMany(mappedBy = "dresseur")
     private List<Pokemon> pokemons;
 
-    @OneToMany(mappedBy = "dresseur")
+    @OneToMany(mappedBy = "dresseur", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<DresseurObjet> dresseurObjets;
 
     // constructeurs

@@ -70,11 +70,11 @@ public class DresseurRestController {
         return ResponseEntity.ok(dresseurResponseDtos);
     }
 
-    @GetMapping("/inventaire")
-    public ResponseEntity<DresseurResponseDto> getInventaire(@RequestParam(value = "dresseurId", required = true) Long dresseurId) {
+    @GetMapping("/{id}/inventaire")
+    public ResponseEntity<Void> getInventaire(@PathVariable("id") Long dresseurId) {
         try {
-            DresseurResponseDto dresseurResponseDto = dresseurService.getInventaire(dresseurId);
-            return ResponseEntity.ok(dresseurResponseDto);
+            dresseurService.getInventaire(dresseurId);
+            return ResponseEntity.ok().build();
         } catch (IllegalArgumentException e) {
             LOGGER.info("DresseurRestController a leve une exception " + e + " pour argument illegal: " + dresseurId);
             return ResponseEntity.notFound().build();

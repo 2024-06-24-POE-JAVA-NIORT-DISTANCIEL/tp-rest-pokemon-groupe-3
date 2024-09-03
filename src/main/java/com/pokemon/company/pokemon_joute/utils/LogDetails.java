@@ -9,7 +9,7 @@ public class LogDetails {
     private static final Logger LOGGER = Logger.getLogger(String.valueOf(LogDetails.class));
 
     public <T> void single(T object) {
-        LOGGER.info(object.toString() + "\n");
+        LOGGER.info(object.toString());
     }
 
     public <T> void list(List<T> objects) {
